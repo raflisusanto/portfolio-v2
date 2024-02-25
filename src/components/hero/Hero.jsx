@@ -1,5 +1,7 @@
 import { motion } from "framer-motion";
 import { ReactTyped } from "react-typed";
+import ArrowDownButton from "../button/ArrowDownButton";
+import Socials from "./Socials";
 
 const heroVariants = {
   initial: {
@@ -18,11 +20,12 @@ const heroVariants = {
 const Hero = () => {
   return (
     <motion.div
-      className="flex-col text-white justify-center text-center pt-48 px-10"
+      className="flex-col text-white justify-center text-center pt-44 px-10"
       variants={heroVariants}
       initial="initial"
       animate="animate"
     >
+      <Socials />
       <motion.h1 className="text-4xl lg:text-5xl font-bold">
         <motion.span className="font-normal" variants={heroVariants}>
           Hi there,
@@ -55,6 +58,10 @@ const Hero = () => {
           Check out my Projects
         </motion.div>
       </motion.button>
+      <br></br>
+      <motion.div variants={heroVariants}>
+        <ArrowDownButton />
+      </motion.div>
     </motion.div>
   );
 };
