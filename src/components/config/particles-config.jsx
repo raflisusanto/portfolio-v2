@@ -30,10 +30,10 @@ const particlesConfig = {
   },
   particles: {
     color: {
-      value: "#e68e2e",
+      value: "#2e79b2",
     },
     links: {
-      color: "#f5d393",
+      color: "#44a6f0",
       distance: "150",
       enable: "true",
       opacity: 0.5,
@@ -55,18 +55,18 @@ const particlesConfig = {
     number: {
       density: {
         enable: true,
-        area: 800,
+        area: 1000,
       },
-      value: 50,
+      value: 100,
     },
     opacity: {
-      value: 0.5,
+      value: 0.4,
     },
     shape: {
       type: "circle",
     },
     size: {
-      value: { min: 1, max: 8 },
+      value: { min: 1, max: 10 },
     },
   },
   detectRetina: true,

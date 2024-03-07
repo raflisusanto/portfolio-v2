@@ -49,8 +49,8 @@ const Hero = () => {
         className="text-normal lg:text-xl font-light pt-8"
         variants={heroVariants}
       >
-        Also a passionate Informatics Fresh Graduate with <br />1 year of
-        professional experience.
+        Also a passionate Informatics Fresh Graduate with <br />
+        1+ year of professional experience.
       </motion.p>
       <motion.button className="mt-8 p-[3px] relative" variants={heroVariants}>
         <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-500 rounded-lg" />

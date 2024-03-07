@@ -17,7 +17,7 @@ const Navbar = () => {
 
   return (
     <motion.header
-      className="fixed left-1/2 transform -translate-x-1/2 pt-8 hidden lg:block"
+      className="fixed z-50 left-1/2 transform -translate-x-1/2 pt-8 hidden lg:block"
       variants={navbarVariants}
       initial="initial"
       animate="animate"

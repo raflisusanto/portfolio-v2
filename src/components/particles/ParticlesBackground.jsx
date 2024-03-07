@@ -25,6 +25,7 @@ const ParticlesBackground = () => {
         id="tsparticles"
         particlesLoaded={particlesLoaded}
         options={particlesConfig}
+        className="absolute -z-[2]"
       />
     )
   );
