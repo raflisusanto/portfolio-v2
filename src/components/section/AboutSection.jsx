@@ -1,7 +1,7 @@
 import portrait from "../../assets/test.png";
-// import asset1 from "../../assets/Asset 1.png";
-// import asset2 from "../../assets/Asset 2.png";
-// import asset5 from "../../assets/Asset 5.png";
+import asset1 from "../../assets/Asset 1.png";
+import asset2 from "../../assets/Asset 2.png";
+import asset5 from "../../assets/Asset 5.png";
 
 const AboutSection = () => {
   return (
@@ -12,7 +12,7 @@ const AboutSection = () => {
       {/* Left Ornament */}
       <div className="relative top-0 left-[-25rem] from-[#2e79b2] to-[#183955] before:absolute before:h-[680px] before:w-[450px] before:rounded-full before:bg-gradient-to-br"></div>
 
-      <div className="relative hidden lg:flex px-28 xl:px-40 justify-around items-center">
+      <div className="relative hidden lg:flex px-28 xl:px-40 gap-20 justify-around items-center">
         <div className="flex flex-col justify-center">
           <p className="text-white text-sm xl:text-base font-extralight">
             ./he/.him
@@ -55,15 +55,15 @@ const AboutSection = () => {
           {/* Cirlces */}
           <div className="absolute top-[24rem] -z-[0] from-[#2e79b2] to-[#183955] before:absolute before:h-[200px] before:w-[200px] before:rounded-full before:bg-gradient-to-tr"></div>
           {/* Ornaments */}
-          {/* <img
-          src={asset1}
-          className="absolute left-[-2rem] top-[24rem] z-40"
-        ></img>
-        <img
-          src={asset2}
-          className="absolute left-[16rem] top-[32rem] z-40"
-        ></img>
-        <img src={asset5} className="absolute top-[32rem] z-40"></img> */}
+          <img
+            src={asset1}
+            className="absolute left-[-2rem] top-[24rem] z-40"
+          ></img>
+          <img
+            src={asset2}
+            className="absolute left-[16rem] top-[32rem] z-40"
+          ></img>
+          <img src={asset5} className="absolute top-[32rem] z-40"></img>
           {/* Portrait */}
           <img src={portrait} className="relative z-30 pt-20 max-w-none"></img>
         </div>
