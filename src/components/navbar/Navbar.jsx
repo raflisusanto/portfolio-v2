@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 const navbarVariants = {
   initial: {
@@ -14,10 +15,34 @@ const navbarVariants = {
 
 const Navbar = () => {
   const items = ["Home", "About", "Projects", "Contact"];
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY;
+
+    setVisible(
+      (prevScrollPos > currentScrollPos &&
+        prevScrollPos - currentScrollPos > 70) ||
+        currentScrollPos < 10
+    );
+
+    setPrevScrollPos(currentScrollPos);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [prevScrollPos, visible, handleScroll]);
 
   return (
     <motion.header
-      className="fixed z-50 left-1/2 transform -translate-x-1/2 pt-8 hidden lg:block"
+      className={`fixed z-50 left-1/2 transform -translate-x-1/2 pt-8 transition-all duration-300 ease-in-out ${
+        visible ? "transform translate-y-0" : "transform -translate-y-full"
+      } hidden lg:block`}
       variants={navbarVariants}
       initial="initial"
       animate="animate"
