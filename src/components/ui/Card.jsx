@@ -1,38 +1,76 @@
-const Card = ({ img }) => {
+import githubIcon from "../../assets/images/github_circle.svg";
+import previewIcon from "../../assets/images/preview.svg";
+import downloadIcon from "../../assets/images/download.svg";
+import colabIcon from "../../assets/images/colab.svg";
+import figmaIcon from "../../assets/images/figma.svg";
+import mediumIcon from "../../assets/images/medium.svg";
+
+const Card = ({
+  img,
+  title,
+  desc,
+  techStack,
+  githubLink,
+  previewLink,
+  apkLink,
+  colabLink,
+  figmaLink,
+  mediumLink,
+}) => {
   return (
-    <div class="max-w-xs text-white font-light text-sm bg-white rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-white border-opacity-20">
-      <a href="#">
-        <img class="rounded-t-lg" src={img} alt="" />
-      </a>
-      <div class="p-5">
-        <h5 class="mb-2 text-2xl font-bold tracking-tight text-white">
-          Project 1
+    <div className="max-w-xs xl:max-w-md text-white font-light text-sm bg-white rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-white border-opacity-20">
+      <div className="h-40 xl:h-60 overflow-hidden">
+        <img className="rounded-t-lg" src={img} alt="" />
+      </div>
+      <div className="p-5">
+        <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
+          {title}
         </h5>
-        <p class="mb-3 font-normal text-gray-400">
-          Here are the biggest enterprise technology acquisitions of 2021 so
-          framer.
-        </p>
-        <a
-          href="#"
-          class="rounded-md inline-flex items-center px-3 py-2 text-sm font-medium text-center focus:ring-4 focus:outline-none  bg-[#417ff2] hover:bg-blue-700 focus:ring-blue-800"
-        >
-          Read more
-          <svg
-            class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 14 10"
-          >
-            <path
-              stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M1 5h12m0 0L9 1m4 4L9 9"
-            />
-          </svg>
-        </a>
+        <p className="mb-4 font-normal text-gray-400">{desc}</p>
+
+        {techStack && (
+          <p className="mb-2 font-normal text-gray-400">
+            <span className="font-bold">Tech Stack:</span> {techStack}
+          </p>
+        )}
+
+        <div className="flex gap-4 items-center">
+          {githubLink && (
+            <a href={githubLink} className="icon-link">
+              <img src={githubIcon} alt="GitHub" className="icon" />
+            </a>
+          )}
+
+          {previewLink && (
+            <a href={previewLink} className="icon-link">
+              <img src={previewIcon} alt="Preview" className="icon" />
+            </a>
+          )}
+
+          {apkLink && (
+            <a href={apkLink} className="icon-link">
+              <img src={downloadIcon} alt="APK" className="icon" />
+            </a>
+          )}
+
+          {colabLink && (
+            <a href={colabLink} className="icon-link">
+              <img src={colabIcon} alt="Colab" className="icon" />
+            </a>
+          )}
+
+          {figmaLink && (
+            <a href={figmaLink} className="icon-link">
+              <img src={figmaIcon} alt="Figma" className="icon" />
+            </a>
+          )}
+
+          {mediumLink && (
+            <a href={mediumLink} className="icon-link">
+              <img src={mediumIcon} alt="Medium" className="icon" />
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
