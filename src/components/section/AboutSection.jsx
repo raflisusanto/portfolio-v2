@@ -68,6 +68,23 @@ const AboutSection = () => {
           <img src={portrait} className="relative z-30 pt-20 max-w-none"></img>
         </div>
       </div>
+
+      <div className="relative lg:hidden flex flex-col justify-center items-center mt-28 ml-[6rem] mr-[3.5rem]">
+        <div className="bg-blue-700 w-32 h-32 mb-10 rounded-full"></div>
+        <h1 className="text-white text-xl font-semibold">
+          About Me <span className="text-3xl lg:text-5xl">👋</span>
+        </h1>
+        <p className="text-white text-sm font-light pt-5 max-w-[400px] xl:max-w-[600px] indent-4 text-justify">
+          Informatics fresh graduate skilled in Front-End Development, Mobile
+          Development, and Machine Learning. With 1+ years of experience, I have
+          crafted visually captivating designs for various platforms and built
+          dynamic user interfaces for web and mobile applications. Driven by a
+          passion for learning new things and solving problems, I bring a unique
+          and versatile skill set to the table. Ready to contribute to
+          innovative projects, I am committed to staying on the cutting edge of
+          technology and making a meaningful impact.
+        </p>
+      </div>
     </section>
   );
 };
