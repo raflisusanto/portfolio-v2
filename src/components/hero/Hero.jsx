@@ -52,12 +52,17 @@ const Hero = () => {
         Also a passionate Informatics Fresh Graduate with <br />
         1+ year of professional experience.
       </motion.p>
-      <motion.button className="mt-8 p-[3px] relative" variants={heroVariants}>
-        <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-500 rounded-lg" />
-        <motion.div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-500 text-white hover:bg-transparent">
-          Check out my Projects
-        </motion.div>
-      </motion.button>
+      <a href="#Projects">
+        <motion.button
+          className="mt-8 p-[3px] relative"
+          variants={heroVariants}
+        >
+          <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-500 rounded-lg" />
+          <motion.div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-500 text-white hover:bg-transparent">
+            Check out my Projects
+          </motion.div>
+        </motion.button>
+      </a>
       <br></br>
       <motion.div variants={heroVariants}>
         <ArrowDownButton />

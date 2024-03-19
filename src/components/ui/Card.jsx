@@ -36,37 +36,37 @@ const Card = ({
 
         <div className="flex gap-4 items-center">
           {githubLink && (
-            <a href={githubLink} className="icon-link">
+            <a href={githubLink} target="_blank" className="icon-link">
               <img src={githubIcon} alt="GitHub" className="icon" />
             </a>
           )}
 
           {previewLink && (
-            <a href={previewLink} className="icon-link">
+            <a href={previewLink} target="_blank" className="icon-link">
               <img src={previewIcon} alt="Preview" className="icon" />
             </a>
           )}
 
           {apkLink && (
-            <a href={apkLink} className="icon-link">
+            <a href={apkLink} target="_blank" className="icon-link">
               <img src={downloadIcon} alt="APK" className="icon" />
             </a>
           )}
 
           {colabLink && (
-            <a href={colabLink} className="icon-link">
+            <a href={colabLink} target="_blank" className="icon-link">
               <img src={colabIcon} alt="Colab" className="icon" />
             </a>
           )}
 
           {figmaLink && (
-            <a href={figmaLink} className="icon-link">
+            <a href={figmaLink} target="_blank" className="icon-link">
               <img src={figmaIcon} alt="Figma" className="icon" />
             </a>
           )}
 
           {mediumLink && (
-            <a href={mediumLink} className="icon-link">
+            <a href={mediumLink} target="_blank" className="icon-link">
               <img src={mediumIcon} alt="Medium" className="icon" />
             </a>
           )}
