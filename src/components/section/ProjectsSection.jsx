@@ -49,6 +49,16 @@ const ProjectsSection = () => {
     };
   }, []);
 
+  const leftArrowMargin =
+    selectedChip === 2
+      ? "!absolute top-2/4 left-4 -translate-y-2/4 ml-[27rem] md:ml-[19rem] xl:ml-[10rem]"
+      : "!absolute top-2/4 left-4 -translate-y-2/4 ml-[14rem] md:ml-[5rem] xl:ml-[0rem]";
+
+  const rightArrowMargin =
+    selectedChip === 2
+      ? "!absolute top-2/4 !right-4 -translate-y-2/4 mr-[27rem] md:mr-[19rem] xl:mr-[10rem]"
+      : "!absolute top-2/4 !right-4 -translate-y-2/4 mr-[14rem] md:mr-[5rem] xl:mr-[0rem]";
+
   return (
     <section id="Projects" className="h-[60rem]">
       <BackgroundFlipped inset="20" />
@@ -88,7 +98,7 @@ const ProjectsSection = () => {
                 color="white"
                 size="lg"
                 onClick={handlePrev}
-                className="!absolute top-2/4 left-4 -translate-y-2/4 ml-[14rem] md:ml-[5rem] xl:ml-0"
+                className={leftArrowMargin}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -112,7 +122,7 @@ const ProjectsSection = () => {
                 color="white"
                 size="lg"
                 onClick={handleNext}
-                className="!absolute top-2/4 !right-4 -translate-y-2/4 mr-[14rem] md:mr-[5rem] xl:mr-0"
+                className={rightArrowMargin}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
