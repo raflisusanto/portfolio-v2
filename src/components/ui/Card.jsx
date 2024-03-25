@@ -19,14 +19,16 @@ const Card = ({
 }) => {
   return (
     <div className="max-w-xs xl:max-w-md text-white font-light text-sm bg-white rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-white border-opacity-20">
-      <div className="h-40 xl:h-60 overflow-hidden">
+      <div className="h-40 xl:h-48 overflow-hidden">
         <img className="rounded-t-lg" src={img} alt="" />
       </div>
       <div className="p-5">
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
+        <h5 className="mb-2 text-lg xl:text-xl font-bold tracking-tight text-white">
           {title}
         </h5>
-        <p className="mb-4 font-normal text-gray-400">{desc}</p>
+        <p className="mb-4 text-xs xl:text-sm font-normal text-gray-400">
+          {desc}
+        </p>
 
         {techStack && (
           <p className="mb-2 font-normal text-gray-400">

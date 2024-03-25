@@ -1,8 +1,29 @@
+import { motion } from "framer-motion";
+
 const FooterSection = () => {
+  const footerVariants = {
+    initial: {
+      x: 200,
+      opacity: 0,
+    },
+    animate: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
   return (
     <footer id="Contact" className="h-36">
       <div className="absolute -z-[8] bg-black h-36 w-full"></div>
-      <div className="flex flex-col items-end mr-10">
+      <motion.div
+        className="flex flex-col items-end mr-10"
+        variants={footerVariants}
+        initial="initial"
+        whileInView="animate"
+      >
         <h1 className="text-white mt-10 text-opacity-80 font-bold">
           Contact Me
         </h1>
@@ -25,7 +46,7 @@ const FooterSection = () => {
         <h1 className="text-white text-opacity-80 font-light mt-2">
           © Rafli 2024
         </h1>
-      </div>
+      </motion.div>
     </footer>
   );
 };

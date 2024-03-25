@@ -23,7 +23,7 @@ const Hero = () => {
       className="flex-col text-white justify-center text-center pt-44 px-10"
       variants={heroVariants}
       initial="initial"
-      animate="animate"
+      whileInView="animate"
     >
       <Socials />
       <motion.h1 className="text-4xl lg:text-5xl font-bold">

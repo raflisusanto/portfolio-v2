@@ -1,3 +1,4 @@
+import { motion, useInView } from "framer-motion";
 import { Carousel, IconButton } from "@material-tailwind/react";
 import BackgroundFlipped from "../background/BackgroundFlipped";
 import Card from "../ui/Card";
@@ -9,6 +10,34 @@ import { useState, useEffect } from "react";
 const ProjectsSection = () => {
   const [selectedChip, setSelectedChip] = useState(0);
   const [chunkSize, setChunkSize] = useState(2);
+
+  const titleVariants = {
+    initial: {
+      y: -100,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+
+  const projectVariants = {
+    initial: {
+      y: 100,
+      opacity: 0,
+    },
+    animate: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
 
   const chunkArray = (array, chunkSize) => {
     const chunks = [];
@@ -51,45 +80,67 @@ const ProjectsSection = () => {
 
   const leftArrowMargin =
     selectedChip === 2
-      ? "!absolute top-2/4 left-4 -translate-y-2/4 ml-[27rem] md:ml-[19rem] xl:ml-[10rem]"
-      : "!absolute top-2/4 left-4 -translate-y-2/4 ml-[14rem] md:ml-[5rem] xl:ml-[0rem]";
+      ? "!absolute top-2/4 left-4 -translate-y-2/4 ml-[20rem] md:ml-[12rem] xl:ml-[6rem]"
+      : "!absolute top-2/4 left-4 -translate-y-2/4 ml-[10rem] md:ml-[0rem] xl:ml-[0rem]";
 
   const rightArrowMargin =
     selectedChip === 2
-      ? "!absolute top-2/4 !right-4 -translate-y-2/4 mr-[27rem] md:mr-[19rem] xl:mr-[10rem]"
-      : "!absolute top-2/4 !right-4 -translate-y-2/4 mr-[14rem] md:mr-[5rem] xl:mr-[0rem]";
+      ? "!absolute top-2/4 !right-4 -translate-y-2/4 mr-[20rem] md:mr-[12rem] xl:mr-[6rem]"
+      : "!absolute top-2/4 !right-4 -translate-y-2/4 mr-[10rem] md:mr-[0rem] xl:mr-[0rem]";
 
   return (
     <section id="Projects" className="h-[60rem]">
       <BackgroundFlipped inset="20" />
-      <div className="flex justify-center pt-16 flex-col items-center">
-        <h1 className="text-3xl text-white font-bold">
+      <div className="flex justify-center pt-12 flex-col items-center">
+        <motion.h1
+          className="text-2xl xl:text-3xl text-white font-bold"
+          variants={titleVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           My{" "}
           <span className="underline underline-offset-4 text-[#52a5e4]">
             Projects
           </span>
-        </h1>
-        <h5 className="text-white text-opacity-80 font-light">
+        </motion.h1>
+        <motion.h5
+          className="text-base xl:text-lg text-white text-opacity-80 font-light"
+          variants={titleVariants}
+          initial="initial"
+          whileInView="animate"
+          viewport={{ once: true }}
+        >
           All my notable projects heheheh.
-        </h5>
-        <div className="flex gap-4">
+        </motion.h5>
+        <motion.div
+          className="flex gap-4 mt-6"
+          variants={titleVariants}
+          initial="initial"
+          whileInView="animate"
+        >
           <Chip
             name={`${chunkSize === 2 ? "FE/Mobile Development" : "FE/MD"}`}
-            className={`mt-10 ${setChipOpacity(0)}`}
+            className={`${setChipOpacity(0)}`}
             onClick={(_) => chipOnClickHandler(0)}
           />
           <Chip
             name={`${chunkSize === 2 ? "Machine Learning" : "ML"}`}
-            className={`mt-10 ${setChipOpacity(1)}`}
+            className={`${setChipOpacity(1)}`}
             onClick={(_) => chipOnClickHandler(1)}
           />
           <Chip
             name={`${chunkSize === 2 ? "Graphic Design" : "GD"}`}
-            className={`mt-10 ${setChipOpacity(2)}`}
+            className={`${setChipOpacity(2)}`}
             onClick={(_) => chipOnClickHandler(2)}
           />
-        </div>
-        <div className="flex mt-6 mx-32">
+        </motion.div>
+        <motion.div
+          className="flex mt-6 mx-32"
+          variants={projectVariants}
+          initial="initial"
+          whileInView="animate"
+        >
           <Carousel
             key={selectedChip}
             prevArrow={({ handlePrev }) => (
@@ -166,7 +217,7 @@ const ProjectsSection = () => {
               )
             )}
           </Carousel>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
