@@ -1,10 +1,10 @@
 const Loading = () => {
   return (
-    <div class="flex items-center justify-center w-screen h-screen bg-gradient-to-b from-[#20527a] to-[#052136]">
+    <div className="flex items-center justify-center w-screen h-screen bg-gradient-to-b from-[#20527a] to-[#052136]">
       <div role="status">
         <svg
           aria-hidden="true"
-          class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-[#2e79b2]"
+          className="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-[#2e79b2]"
           viewBox="0 0 100 101"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +18,7 @@ const Loading = () => {
             fill="currentFill"
           />
         </svg>
-        <span class="sr-only">Loading...</span>
+        <span className="sr-only">Loading...</span>
       </div>
     </div>
   );
