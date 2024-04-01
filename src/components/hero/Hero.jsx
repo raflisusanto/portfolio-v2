@@ -49,7 +49,7 @@ const Hero = () => {
         className="text-normal lg:text-xl font-light pt-8"
         variants={heroVariants}
       >
-        Also a passionate Informatics Fresh Graduate with <br />
+        Informatics Fresh Graduate with <br />
         1+ year of professional experience.
       </motion.p>
       <a href="#Projects">

@@ -1,4 +1,4 @@
-import portrait from "../../assets/test.png";
+import portrait from "../../assets/rapli.png";
 import asset1 from "../../assets/Asset 1.png";
 import asset2 from "../../assets/Asset 2.png";
 import asset5 from "../../assets/Asset 5.png";
@@ -25,10 +25,10 @@ const AboutSection = () => {
             Development, and Machine Learning. With 1+ years of experience, I
             have crafted visually captivating designs for various platforms and
             built dynamic user interfaces for web and mobile applications.
-            Driven by a passion for learning new things and solving problems, I
-            bring a unique and versatile skill set to the table. Ready to
-            contribute to innovative projects, I am committed to staying on the
-            cutting edge of technology and making a meaningful impact.
+            Hungry for learning new things and solving problems, I bring a
+            unique and versatile skill set to the table. Ready to contribute to
+            innovative projects, I am committed to staying on the cutting edge
+            of technology and making a meaningful impact.
           </p>
           <a href="https://www.linkedin.com/in/raflisusanto/" target="_blank">
             <button className="flex justify-center items-center mt-10 w-1/2 text-white font-light text-xs lg:text-sm bg-white rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-white border-opacity-20 px-8 py-4 tracking-widest hover:bg-white hover:text-black dark:text-neutral-200 transition duration-200">
@@ -53,9 +53,9 @@ const AboutSection = () => {
         </div>
         <div className="relative">
           {/* Big Circles */}
-          <div className="absolute left-[4rem] top-[12rem] -z-[0] from-[#183955] to-[#2e79b2] before:absolute before:h-[450px] before:w-[450px] before:rounded-full before:bg-gradient-to-tl"></div>
+          <div className="absolute left-[7rem] top-[12rem] -z-[0] from-[#183955] to-[#2e79b2] before:absolute before:h-[350px] before:w-[350px] before:rounded-full before:bg-gradient-to-tl"></div>
           {/* Cirlces */}
-          <div className="absolute top-[24rem] -z-[0] from-[#2e79b2] to-[#183955] before:absolute before:h-[200px] before:w-[200px] before:rounded-full before:bg-gradient-to-tr"></div>
+          <div className="absolute left-[-2rem] top-[25rem] -z-[0] from-[#2e79b2] to-[#183955] before:absolute before:h-[200px] before:w-[200px] before:rounded-full before:bg-gradient-to-tr"></div>
           {/* Ornaments */}
           <img
             src={asset1}
@@ -63,7 +63,7 @@ const AboutSection = () => {
           ></img>
           <img
             src={asset2}
-            className="absolute left-[16rem] top-[32rem] z-40"
+            className="absolute left-[16rem] top-[29rem] z-40"
           ></img>
           <img src={asset5} className="absolute top-[32rem] z-40"></img>
           {/* Portrait */}
@@ -72,7 +72,9 @@ const AboutSection = () => {
       </div>
 
       <div className="relative lg:hidden flex flex-col justify-center items-center mt-28 ml-[6rem] mr-[3.5rem]">
-        <div className="bg-blue-700 w-32 h-32 mb-10 rounded-full"></div>
+        <div className="bg-light-blue-800 border-light-blue-800 border-4 w-32 h-32 mb-10 rounded-full overflow-hidden">
+          <img src={portrait}></img>
+        </div>
         <h1 className="text-white text-xl font-semibold">
           About Me <span className="text-3xl lg:text-5xl">👋</span>
         </h1>

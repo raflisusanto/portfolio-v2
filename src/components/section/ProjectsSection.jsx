@@ -111,7 +111,7 @@ const ProjectsSection = () => {
           whileInView="animate"
           viewport={{ once: true }}
         >
-          All my notable projects heheheh.
+          All my notable personal projects heheheh.
         </motion.h5>
         <motion.div
           className="flex gap-4 mt-6"
