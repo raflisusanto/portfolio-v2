@@ -10,7 +10,7 @@ const AboutSection = () => {
       <div className="absolute -z-8 bg-gradient-to-b from-[#20527a] to-[#052136] h-full w-full shadow-[0_20px_50px_rgba(0,_0,_0,_0.5)]"></div>
 
       {/* Left Ornament */}
-      <div className="relative top-0 left-[-25rem] from-[#2e79b2] to-[#183955] before:absolute before:h-[680px] before:w-[450px] before:rounded-full before:bg-gradient-to-br"></div>
+      <div className="relative hidden xl:block top-0 left-[-25rem] from-[#2e79b2] to-[#183955] before:absolute before:h-[680px] before:w-[450px] before:rounded-full before:bg-gradient-to-br"></div>
 
       <div className="relative hidden lg:flex px-28 xl:px-40 gap-20 justify-around items-center">
         <div className="flex flex-col justify-center">
@@ -71,14 +71,14 @@ const AboutSection = () => {
         </div>
       </div>
 
-      <div className="relative lg:hidden flex flex-col justify-center items-center mt-28 ml-[6rem] mr-[3.5rem]">
+      <div className="relative lg:hidden flex flex-col justify-center items-center mt-28 ml-[3.5rem] mr-[3.5rem]">
         <div className="bg-light-blue-800 border-light-blue-800 border-4 w-32 h-32 mb-10 rounded-full overflow-hidden">
           <img src={portrait}></img>
         </div>
         <h1 className="text-white text-xl font-semibold">
           About Me <span className="text-3xl lg:text-5xl">👋</span>
         </h1>
-        <p className="text-white text-xs font-light pt-5 max-w-[400px] xl:text-xl xl:max-w-[600px] indent-4 text-justify">
+        <p className="text-white text-sm font-light pt-5 max-w-[400px] xl:text-xl xl:max-w-[600px] indent-4 text-center xl:text-justify">
           Informatics fresh graduate skilled in Front-End Development, Mobile
           Development, and Machine Learning. With 1+ years of experience, I have
           crafted visually captivating designs for various platforms and built
