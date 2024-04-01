@@ -9,8 +9,8 @@ const ToggleButton = ({ setOpen }) => {
           stroke="white"
           strokeLinecap="round"
           variants={{
-            closed: { d: "M 2 2.5 L 20 2.5" },
-            open: { d: "M 3 16.5 L 17 2.5" },
+            closed: { d: "M 2 2.5 L 20 2.5", opacity: 1 },
+            open: { d: "M 3 16.5 L 17 2.5", opacity: 1 },
           }}
         />
         <motion.path
@@ -28,8 +28,8 @@ const ToggleButton = ({ setOpen }) => {
           stroke="white"
           strokeLinecap="round"
           variants={{
-            closed: { d: "M 2 16.346 L 20 16.346" },
-            open: { d: "M 3 2.5 L 17 16.346" },
+            closed: { d: "M 2 16.346 L 20 16.346", opacity: 1 },
+            open: { d: "M 3 2.5 L 17 16.346", opacity: 1 },
           }}
         />
       </svg>
