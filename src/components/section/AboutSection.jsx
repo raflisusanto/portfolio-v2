@@ -78,7 +78,7 @@ const AboutSection = () => {
         <h1 className="text-white text-xl font-semibold">
           About Me <span className="text-3xl lg:text-5xl">👋</span>
         </h1>
-        <p className="text-white text-sm font-light pt-5 max-w-[400px] xl:max-w-[600px] indent-4 text-justify">
+        <p className="text-white text-xs font-light pt-5 max-w-[400px] xl:text-xl xl:max-w-[600px] indent-4 text-justify">
           Informatics fresh graduate skilled in Front-End Development, Mobile
           Development, and Machine Learning. With 1+ years of experience, I have
           crafted visually captivating designs for various platforms and built
