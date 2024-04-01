@@ -3,11 +3,15 @@
 @tailwind utilities;
 
 @layer base {
-  html,
-  body {
+  html {
     font-family: "Inter", system-ui, sans-serif;
     scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     overflow-x: hidden;
+  }
+
+  body {
+    overflow-x: hidden;
+    background-color: #134f7c;
   }
 }
