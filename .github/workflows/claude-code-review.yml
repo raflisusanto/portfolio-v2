@@ -3,25 +3,16 @@ name: Claude Code Review
 on:
   pull_request:
     types: [opened, synchronize, ready_for_review, reopened]
-    # Optional: Only run on specific file changes
-    # paths:
-    #   - "src/**/*.ts"
-    #   - "src/**/*.tsx"
-    #   - "src/**/*.js"
-    #   - "src/**/*.jsx"
 
 jobs:
   claude-review:
-    # Optional: Filter by PR author
-    # if: |
-    #   github.event.pull_request.user.login == 'external-contributor' ||
-    #   github.event.pull_request.user.login == 'new-developer' ||
-    #   github.event.pull_request.author_association == 'FIRST_TIME_CONTRIBUTOR'
+    # Skip draft PRs; review runs again when marked ready.
+    if: github.event.pull_request.draft == false
 
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: write # needed to approve / request changes
       issues: read
       id-token: write
 
@@ -36,9 +27,34 @@ jobs:
         uses: anthropics/claude-code-action@v1
         with:
           claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
-          plugin_marketplaces: 'https://github.com/anthropics/claude-code.git'
-          plugins: 'code-review@claude-code-plugins'
-          prompt: '/code-review:code-review ${{ github.repository }}/pull/${{ github.event.pull_request.number }}'
-          # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://code.claude.com/docs/en/cli-reference for available options
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ github.event.pull_request.number }}
 
+            You are the reviewer for this pull request on a personal portfolio
+            site (React + Vite + Tailwind). Review it, then submit a formal
+            GitHub review with your verdict.
+
+            1. Read the PR description and diff:
+               gh pr view ${{ github.event.pull_request.number }}
+               gh pr diff ${{ github.event.pull_request.number }}
+               Open files in the checkout when you need more context.
+
+            2. Look for real problems only: bugs, broken imports or builds,
+               runtime errors, security issues, accessibility regressions, and
+               visual/layout regressions you can infer from the code. Ignore
+               style preferences and nitpicks. Binary image changes can't be
+               inspected; just check that every image import still resolves.
+
+            3. Submit exactly one review:
+               - No blocking problems:
+                 gh pr review ${{ github.event.pull_request.number }} --approve --body "<summary>"
+               - Blocking problems found:
+                 gh pr review ${{ github.event.pull_request.number }} --request-changes --body "<findings>"
+
+               The body should be short markdown: a one-paragraph summary,
+               then a bullet list of findings with file:line references.
+               Non-blocking suggestions may be listed under "Nits" in an
+               approval.
+          claude_args: |
+            --allowedTools "Read,Glob,Grep,Bash(gh pr view:*),Bash(gh pr diff:*),Bash(gh pr review:*)"
