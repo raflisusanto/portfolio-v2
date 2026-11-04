@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const FooterSection = () => {
   const footerVariants = {
@@ -17,14 +17,14 @@ const FooterSection = () => {
 
   return (
     <footer id="Contact" className="h-36">
-      <div className="absolute -z-[8] bg-black h-36 w-full"></div>
+      <div className="absolute z-[-8] bg-black h-36 w-full"></div>
       <motion.div
         className="flex flex-col items-end mr-10"
         variants={footerVariants}
         initial="initial"
         whileInView="animate"
       >
-        <h1 className="text-white mt-10 text-opacity-80 font-bold">
+        <h1 className="text-white/80 mt-10 font-bold">
           Contact Me
         </h1>
         <div className="flex justify-center items-center gap-2">
@@ -41,9 +41,9 @@ const FooterSection = () => {
             />
           </svg>
 
-          <h1 className="text-white text-opacity-80">+62 857 4962 3626</h1>
+          <h1 className="text-white/80">+62 857 4962 3626</h1>
         </div>
-        <h1 className="text-white text-opacity-80 font-light mt-2">
+        <h1 className="text-white/80 font-light mt-2">
           © Rafli 2024
         </h1>
       </motion.div>

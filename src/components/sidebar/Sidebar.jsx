@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useState } from "react";
+import { motion } from "motion/react";
 import Links from "./Links";
 import ToggleButton from "./ToggleButton";
 
@@ -23,16 +23,14 @@ const variants = {
 };
 
 const Sidebar = () => {
-  const [open, setOpen] = useState(true);
-
-  useEffect(() => {
-    setOpen(false);
-  }, []);
+  const [open, setOpen] = useState(false);
 
   return (
     <motion.div
-      className="z-50 fixed top-0 left-0 bottom-0 w-400 bg-white bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-white border-opacity-20 block lg:hidden"
+      className="z-50 fixed top-0 left-0 bottom-0 bg-white/10 bg-clip-padding backdrop-blur-md border border-white/20 block lg:hidden"
       variants={variants}
+      // Start open and animate closed on first load
+      initial="open"
       animate={open ? "open" : "closed"}
     >
       <ToggleButton setOpen={setOpen} />

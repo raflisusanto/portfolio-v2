@@ -18,7 +18,7 @@ const Card = ({
   mediumLink,
 }) => {
   return (
-    <div className="max-w-xs xl:max-w-md text-white font-light text-sm bg-white rounded-2xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-white border-opacity-20">
+    <div className="max-w-xs xl:max-w-md text-white font-light text-sm bg-white/10 rounded-2xl bg-clip-padding backdrop-blur-md border border-white/20">
       <div className="h-40 xl:h-48 overflow-hidden">
         <img className="rounded-t-lg" src={img} alt="" />
       </div>

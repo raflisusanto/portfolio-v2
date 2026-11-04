@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { ReactTyped } from "react-typed";
 import ArrowDownButton from "../button/ArrowDownButton";
 import Socials from "./Socials";
@@ -34,7 +34,7 @@ const Hero = () => {
       </motion.h1>
       <motion.div variants={heroVariants}>
         <ReactTyped
-          className="text-4xl lg:text-5xl font-bold pt-2 bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text"
+          className="text-4xl lg:text-5xl font-bold pt-2 bg-linear-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text"
           strings={[
             "a Mobile Developer",
             "a Front-end Developer",
@@ -57,7 +57,7 @@ const Hero = () => {
           className="mt-8 p-[3px] relative"
           variants={heroVariants}
         >
-          <motion.div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-green-500 rounded-lg" />
+          <motion.div className="absolute inset-0 bg-linear-to-r from-blue-600 to-green-500 rounded-lg" />
           <motion.div className="px-8 py-2  bg-black rounded-[6px]  relative group transition duration-500 text-white hover:bg-transparent">
             Check out my Projects
           </motion.div>

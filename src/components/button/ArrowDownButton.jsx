@@ -1,7 +1,7 @@
 const ArrowDownButton = () => {
   return (
     <a href="#Projects">
-      <button className="animate-bounce mt-20 bg-white p-4 rounded-full bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border-2 border-white border-opacity-20">
+      <button className="animate-bounce mt-20 bg-white/10 p-4 rounded-full bg-clip-padding backdrop-blur-md border-2 border-white/20">
         <svg
           width="14"
           height="18"
