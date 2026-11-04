@@ -1,23 +1,23 @@
-import specifitAdmin from "../../src/assets/thumbnail/FE/Specifit_admin.png";
-import githubUser from "../../src/assets/thumbnail/FE/Github.png";
-import specifitFE from "../../src/assets/thumbnail/FE/Specifit.png";
-import esyarat from "../../src/assets/thumbnail/FE/Esyarat.png";
-import booku from "../../src/assets/thumbnail/FE/Booku.png";
-import fabric from "../../src/assets/thumbnail/ML/fabric.png";
-import defect from "../../src/assets/thumbnail/ML/defect.png";
-import NFO from "../../src/assets/thumbnail/ML/NFO.png";
-import arrh from "../../src/assets/thumbnail/ML/Arrh.png";
-import knn from "../../src/assets/thumbnail/ML/knn.png";
-import interfest from "../../src/assets/thumbnail/GD/interfest.jpg";
-import motionhack from "../../src/assets/thumbnail/GD/motionhack.png";
-import icoseit from "../../src/assets/thumbnail/GD/icoseit.jpg";
-import himaif from "../../src/assets/thumbnail/GD/HIMAIF.jpg";
-import mulmed from "../../src/assets/thumbnail/GD/mulmed.png";
-import specifit from "../../src/assets/thumbnail/GD/specifit.png";
-import tanamaja from "../../src/assets/thumbnail/GD/tanamaja.jpg";
-import moneyflix from "../../src/assets/thumbnail/GD/moneyflix.png";
-import mizkin from "../../src/assets/thumbnail/GD/mizkin.png";
-// import temuin from "../../src/assets/thumbnail/GD/temuin.png";
+import specifitAdmin from "../../src/assets/thumbnail/FE/Specifit_admin.webp";
+import githubUser from "../../src/assets/thumbnail/FE/Github.webp";
+import specifitFE from "../../src/assets/thumbnail/FE/Specifit.webp";
+import esyarat from "../../src/assets/thumbnail/FE/Esyarat.webp";
+import booku from "../../src/assets/thumbnail/FE/Booku.webp";
+import fabric from "../../src/assets/thumbnail/ML/fabric.webp";
+import defect from "../../src/assets/thumbnail/ML/defect.webp";
+import NFO from "../../src/assets/thumbnail/ML/NFO.webp";
+import arrh from "../../src/assets/thumbnail/ML/Arrh.webp";
+import knn from "../../src/assets/thumbnail/ML/knn.webp";
+import interfest from "../../src/assets/thumbnail/GD/interfest.webp";
+import motionhack from "../../src/assets/thumbnail/GD/motionhack.webp";
+import icoseit from "../../src/assets/thumbnail/GD/icoseit.webp";
+import himaif from "../../src/assets/thumbnail/GD/HIMAIF.webp";
+import mulmed from "../../src/assets/thumbnail/GD/mulmed.webp";
+import specifit from "../../src/assets/thumbnail/GD/specifit.webp";
+import tanamaja from "../../src/assets/thumbnail/GD/tanamaja.webp";
+import moneyflix from "../../src/assets/thumbnail/GD/moneyflix.webp";
+import mizkin from "../../src/assets/thumbnail/GD/mizkin.webp";
+// import temuin from "../../src/assets/thumbnail/GD/temuin.webp";
 
 export const projectData = {
   0: [

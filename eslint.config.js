@@ -23,4 +23,11 @@ export default defineConfig([
       },
     },
   },
+  {
+    // Node scripts (run with `node`, not in the browser)
+    files: ["scripts/**/*.js"],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
 ]);

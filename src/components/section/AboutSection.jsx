@@ -1,7 +1,7 @@
-import portrait from "../../assets/rapli.png";
-import asset1 from "../../assets/Asset 1.png";
-import asset2 from "../../assets/Asset 2.png";
-import asset5 from "../../assets/Asset 5.png";
+import portrait from "../../assets/rapli.webp";
+import asset1 from "../../assets/Asset 1.webp";
+import asset2 from "../../assets/Asset 2.webp";
+import asset5 from "../../assets/Asset 5.webp";
 
 const AboutSection = () => {
   return (
