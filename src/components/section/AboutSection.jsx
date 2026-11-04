@@ -7,10 +7,10 @@ const AboutSection = () => {
   return (
     <section id="About" className="h-screen overflow-hidden">
       {/* Background */}
-      <div className="absolute -z-8 bg-gradient-to-b from-[#20527a] to-[#052136] h-full w-full shadow-[0_20px_50px_rgba(0,_0,_0,_0.5)]"></div>
+      <div className="absolute bg-linear-to-b from-[#20527a] to-[#052136] h-full w-full shadow-[0_20px_50px_rgba(0,0,0,0.5)]"></div>
 
       {/* Left Ornament */}
-      <div className="relative hidden xl:block top-0 left-[-25rem] from-[#2e79b2] to-[#183955] before:absolute before:h-[680px] before:w-[450px] before:rounded-full before:bg-gradient-to-br"></div>
+      <div className="relative hidden xl:block top-0 left-[-25rem] from-[#2e79b2] to-[#183955] before:absolute before:h-[680px] before:w-[450px] before:rounded-full before:bg-linear-to-br"></div>
 
       <div className="relative hidden lg:flex px-28 xl:px-40 gap-20 justify-around items-center">
         <div className="flex flex-col justify-center">
@@ -31,7 +31,7 @@ const AboutSection = () => {
             of technology and making a meaningful impact.
           </p>
           <a href="https://www.linkedin.com/in/raflisusanto/" target="_blank">
-            <button className="flex justify-center items-center mt-10 w-1/2 text-white font-light text-xs lg:text-sm bg-white rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-md bg-opacity-10 border border-white border-opacity-20 px-8 py-4 tracking-widest hover:bg-white hover:text-black dark:text-neutral-200 transition duration-200">
+            <button className="flex justify-center items-center mt-10 w-1/2 text-white font-light text-xs lg:text-sm bg-white/10 rounded-3xl bg-clip-padding backdrop-blur-md border border-white/20 px-8 py-4 tracking-widest hover:bg-white hover:text-black transition duration-200">
               <span>
                 <svg
                   width="20"
@@ -53,9 +53,9 @@ const AboutSection = () => {
         </div>
         <div className="relative">
           {/* Big Circles */}
-          <div className="absolute left-[7rem] top-[12rem] -z-[0] from-[#183955] to-[#2e79b2] before:absolute before:h-[350px] before:w-[350px] before:rounded-full before:bg-gradient-to-tl"></div>
+          <div className="absolute left-[7rem] top-[12rem] z-0 from-[#183955] to-[#2e79b2] before:absolute before:h-[350px] before:w-[350px] before:rounded-full before:bg-linear-to-tl"></div>
           {/* Cirlces */}
-          <div className="absolute left-[-2rem] top-[25rem] -z-[0] from-[#2e79b2] to-[#183955] before:absolute before:h-[200px] before:w-[200px] before:rounded-full before:bg-gradient-to-tr"></div>
+          <div className="absolute left-[-2rem] top-[25rem] z-0 from-[#2e79b2] to-[#183955] before:absolute before:h-[200px] before:w-[200px] before:rounded-full before:bg-linear-to-tr"></div>
           {/* Ornaments */}
           <img
             src={asset1}

@@ -17,7 +17,7 @@ import specifit from "../../src/assets/thumbnail/GD/specifit.png";
 import tanamaja from "../../src/assets/thumbnail/GD/tanamaja.jpg";
 import moneyflix from "../../src/assets/thumbnail/GD/moneyflix.png";
 import mizkin from "../../src/assets/thumbnail/GD/mizkin.png";
-import temuin from "../../src/assets/thumbnail/GD/temuin.png";
+// import temuin from "../../src/assets/thumbnail/GD/temuin.png";
 
 export const projectData = {
   0: [

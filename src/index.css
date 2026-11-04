@@ -1,6 +1,19 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/*
+ * These colors used to come from @material-tailwind's `withMT` wrapper, which
+ * swapped Tailwind's palette for Material Design shades. Pinned here so the
+ * site looks the same after removing that library.
+ */
+@theme {
+  --color-gray-200: #eeeeee;
+  --color-gray-400: #bdbdbd;
+  --color-gray-600: #757575;
+  --color-blue-600: #1e88e5;
+  --color-green-500: #4caf50;
+  --color-indigo-400: #5c6bc0;
+  --color-light-blue-800: #0277bd;
+}
 
 @layer base {
   html {
@@ -13,5 +26,11 @@
   body {
     overflow-x: hidden;
     background-color: #134f7c;
+  }
+
+  /* Tailwind v4 no longer gives buttons a pointer cursor by default. */
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
   }
 }

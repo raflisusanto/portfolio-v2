@@ -16,7 +16,7 @@ const particlesConfig = {
         enable: true,
         mode: "repulse",
       },
-      resize: true,
+      resize: { enable: true },
     },
     modes: {
       push: {
@@ -55,7 +55,7 @@ const particlesConfig = {
     number: {
       density: {
         enable: true,
-        area: 1000,
+        width: 1000,
       },
       value: 100,
     },
