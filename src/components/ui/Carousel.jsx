@@ -62,7 +62,9 @@ const Carousel = ({ children, className = "" }) => {
           onDragEnd={handleDragEnd}
         >
           {slides.map((slide, i) => (
-            <div key={i} className="w-full shrink-0" aria-hidden={i !== index}>
+            // inert: off-screen slides are hidden from screen readers and
+            // their links can't be reached with Tab
+            <div key={i} className="w-full shrink-0" inert={i !== index}>
               {slide}
             </div>
           ))}
@@ -80,6 +82,7 @@ const Carousel = ({ children, className = "" }) => {
                 key={i}
                 type="button"
                 aria-label={`Go to slide ${i + 1}`}
+                aria-current={i === index ? "true" : undefined}
                 onClick={() => goTo(i)}
                 className={`h-1 rounded-2xl transition-all ${
                   i === index ? "w-8 bg-white" : "w-4 bg-white/50"
