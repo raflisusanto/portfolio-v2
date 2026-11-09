@@ -29,8 +29,8 @@ const Sidebar = () => {
     <motion.div
       className="z-50 fixed top-0 right-0 bottom-0 bg-white/10 bg-clip-padding backdrop-blur-md border border-white/20 block lg:hidden"
       variants={variants}
-      // Start open and animate closed on first load
-      initial="open"
+      // Render closed on first load, with no intro animation
+      initial={false}
       animate={open ? "open" : "closed"}
     >
       <ToggleButton setOpen={setOpen} />
