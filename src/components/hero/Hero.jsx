@@ -6,12 +6,7 @@ import codeTag from "../../assets/hero/ornament-code-tag.webp";
 import Background from "../background/Background";
 import { profile, stats } from "../../data/content";
 import { glass } from "../ui/Section";
-import {
-  DocumentIcon,
-  LinkedInIcon,
-  MailIcon,
-  MapPinIcon,
-} from "../ui/Icons";
+import { DocumentIcon, LinkedInIcon, MailIcon } from "../ui/Icons";
 
 /** Decorative code ornaments floating in front of the portrait (from the old About section). */
 const ornaments = [
@@ -55,23 +50,9 @@ const Hero = () => (
       transition={{ staggerChildren: 0.12 }}
     >
       <div className="text-white">
-        <motion.p
-          variants={fadeUp}
-          className={`${glass} inline-flex flex-wrap items-center gap-x-2 gap-y-0.5 px-4 py-1.5 text-sm text-white/85`}
-        >
-          <span className="inline-flex items-center gap-2 whitespace-nowrap">
-            <MapPinIcon className="size-4 text-[#52a5e4]" />
-            {profile.location}
-          </span>
-          <span className="hidden text-white/40 sm:inline">·</span>
-          <span className="whitespace-nowrap font-medium text-white">
-            {profile.relocation}
-          </span>
-        </motion.p>
-
         <motion.h1
           variants={fadeUp}
-          className="mt-6 text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
+          className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl"
         >
           <span className="font-normal text-white/80">Hi, I&apos;m </span>
           {profile.name}
@@ -100,7 +81,8 @@ const Hero = () => (
           variants={fadeUp}
           className="mt-6 max-w-2xl text-lg font-light text-white/80"
         >
-          {profile.tagline}
+          {profile.tagline}{" "}
+          <span className="font-medium text-white">{profile.relocation}.</span>
         </motion.p>
 
         <motion.div variants={fadeUp} className="mt-8 flex flex-wrap gap-3">
@@ -108,9 +90,9 @@ const Hero = () => (
             href={profile.cv}
             target="_blank"
             rel="noreferrer"
-            className="relative rounded-lg bg-linear-to-r from-blue-600 to-green-500 p-[2px]"
+            className="relative rounded-lg bg-linear-to-r from-blue-600 to-green-500 p-0.5"
           >
-            <span className="flex items-center gap-2 rounded-[6px] bg-black px-6 py-2.5 font-medium transition duration-300 hover:bg-transparent">
+            <span className="flex items-center gap-2 rounded-md bg-black px-6 py-2.5 font-medium transition duration-300 hover:bg-transparent">
               <DocumentIcon /> Download CV
             </span>
           </a>
@@ -146,11 +128,11 @@ const Hero = () => (
 
       <motion.div variants={fadeUp} className="hidden lg:block">
         <div className="relative">
-          <div className="absolute inset-0 -z-10 translate-x-4 translate-y-4 rounded-[2rem] bg-linear-to-br from-[#2e79b2] to-[#183955]" />
+          <div className="absolute inset-0 -z-10 translate-x-4 translate-y-4 rounded-4xl bg-linear-to-br from-[#2e79b2] to-[#183955]" />
           <img
             src={profile.portrait}
             alt={profile.name}
-            className={`${glass} w-80 rounded-[2rem] object-cover`}
+            className={`${glass} w-80 rounded-4xl object-cover`}
           />
           {ornaments.map((ornament) => (
             <FloatingOrnament key={ornament.src} {...ornament} />

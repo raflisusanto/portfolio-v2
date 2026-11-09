@@ -3,6 +3,9 @@ import { diagrams } from "../diagrams";
 import Section, { Reveal, Tag, glass } from "../ui/Section";
 import { ArrowUpRightIcon } from "../ui/Icons";
 
+/** Tags shown on the card itself on phones/tablets. */
+const MOBILE_TAGS = 3;
+
 const Heading = ({ children }) => (
   <h4 className="text-xs font-semibold uppercase tracking-widest text-white/50">
     {children}
@@ -69,22 +72,29 @@ const CaseStudy = ({ study, flipped }) => {
           <h3 className="mt-2 text-2xl font-bold leading-snug text-white">
             {study.title}
           </h3>
-          <p className="mt-3 text-sm italic text-white/70">{study.role}</p>
+          {/* Phones/tablets: one-liner + media up front; the rest moves into "Read more" */}
+          <p className="mt-3 text-white/80 lg:hidden">{study.summary}</p>
+          <div className="mt-6 lg:hidden">
+            <Media media={study.media} />
+          </div>
 
-          <div className="mt-4 flex flex-wrap gap-2">
+          <p className="mt-3 hidden text-sm italic text-white/70 lg:block">{study.role}</p>
+          <div className="mt-4 hidden flex-wrap gap-2 lg:flex">
             {study.tags.map((tag) => (
               <Tag key={tag}>{tag}</Tag>
             ))}
           </div>
 
           <div className="mt-6 space-y-5 text-white/80">
-            <div>
-              <Heading>Problem</Heading>
-              <p className="mt-2">{study.problem}</p>
-            </div>
-            <div>
-              <Heading>What I did</Heading>
-              <Bullets items={study.approach} />
+            <div className="hidden space-y-5 lg:block">
+              <div>
+                <Heading>Problem</Heading>
+                <p className="mt-2">{study.problem}</p>
+              </div>
+              <div>
+                <Heading>What I did</Heading>
+                <Bullets items={study.approach} />
+              </div>
             </div>
             <div className="rounded-xl border border-[#52a5e4]/30 bg-[#52a5e4]/10 p-4">
               <Heading>Results</Heading>
@@ -97,6 +107,13 @@ const CaseStudy = ({ study, flipped }) => {
                 ))}
               </ul>
             </div>
+          </div>
+
+          {/* Phones/tablets: first 3 tags under the results (all of them in "Read more") */}
+          <div className="mt-5 flex flex-wrap gap-2 lg:hidden">
+            {study.tags.slice(0, MOBILE_TAGS).map((tag) => (
+              <Tag key={tag}>{tag}</Tag>
+            ))}
           </div>
 
           {study.links.length > 0 && (
@@ -116,7 +133,9 @@ const CaseStudy = ({ study, flipped }) => {
           )}
         </div>
 
-        <div className={`self-start lg:sticky lg:top-24 ${flipped ? "lg:order-1" : ""}`}>
+        <div
+          className={`hidden self-start lg:sticky lg:top-24 lg:block ${flipped ? "lg:order-1" : ""}`}
+        >
           <Media media={study.media} />
         </div>
 
@@ -128,12 +147,37 @@ const CaseStudy = ({ study, flipped }) => {
             >
               ▸
             </span>
-            Read more: challenges and what I learned
+            <span className="lg:hidden">Read the full case study</span>
+            <span className="hidden lg:inline">Read more: challenges and what I learned</span>
           </summary>
           <div
             className={`mt-5 grid gap-8 ${DetailDiagram ? "lg:grid-cols-[1.15fr_1fr] lg:gap-12" : ""}`}
           >
             <div className="space-y-5">
+              <div className="space-y-5 lg:hidden">
+                <div>
+                  <Heading>My role</Heading>
+                  <p className="mt-2">{study.role}</p>
+                </div>
+                <div>
+                  <Heading>Problem</Heading>
+                  <p className="mt-2">{study.problem}</p>
+                </div>
+                <div>
+                  <Heading>What I did</Heading>
+                  <Bullets items={study.approach} />
+                </div>
+                {study.tags.length > MOBILE_TAGS && (
+                  <div>
+                    <Heading>Tech</Heading>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {study.tags.map((tag) => (
+                        <Tag key={tag}>{tag}</Tag>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
               <div>
                 <Heading>Challenges</Heading>
                 <Bullets items={study.challenges} />
