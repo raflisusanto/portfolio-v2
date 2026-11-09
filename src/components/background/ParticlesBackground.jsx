@@ -18,7 +18,7 @@ const ParticlesCanvas = () => {
     <Particles
       id="tsparticles"
       options={particlesConfig}
-      className="absolute z-[-2]"
+      className="absolute -z-2"
     />
   );
 };

@@ -32,11 +32,11 @@ const Section = ({ id, eyebrow, title, subtitle, children, className = "" }) => 
 );
 
 export const glass =
-  "rounded-2xl border border-white/15 bg-white/[0.06] backdrop-blur-md";
+  "rounded-2xl border border-white/15 bg-white/6 backdrop-blur-md";
 
 export const Tag = ({ children, className = "" }) => (
   <span
-    className={`rounded-full border border-white/15 bg-white/[0.06] px-3 py-1 text-xs text-white/80 ${className}`}
+    className={`rounded-full border border-white/15 bg-white/6 px-3 py-1 text-xs text-white/80 ${className}`}
   >
     {children}
   </span>
