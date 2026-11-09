@@ -170,30 +170,30 @@ export const caseStudies = [
     logo: sanfindIcon,
     context: "Nusantara Beta Studio · Fintech · 2024–2026",
     title: "Keeping a fintech Flutter app current, secure and store-compliant",
-    summary: "Kept a fintech Flutter app compliant and secure: Google Play's 16 KB requirement, native Kotlin bridges, and installment payments that can be fixed without app updates.",
+    summary: "Kept a fintech Flutter app compliant and secure: Google Play's 16 KB requirement, native Android and iOS bridges, and installment payments that can be fixed without app updates.",
     role: "Tech lead and coordinator since 2024, developing features across the app and working closely with the backend team.",
-    tags: ["Flutter", "Bloc + Freezed", "Platform channels (Kotlin)", "Midtrans", "WebView"],
+    tags: ["Flutter", "Bloc + Freezed", "Platform channels (Android, iOS)", "Midtrans", "WebView"],
     problem:
       "An existing app with outdated libraries was at risk of falling behind store rules: Google Play's 16 KB page size requirement for Android 15+ had to be met to keep publishing updates. The app also lacked in-app update prompts and the company's runtime security checks, and needed a new installment-payment feature.",
     approach: [
       "Upgraded the Flutter libraries and made sure every native dependency meets the 16 KB page size requirement.",
       "Moved Bloc states and events to Freezed (immutable classes, sealed unions) for safer, less error-prone state handling.",
-      "Bridged to Kotlin through platform channels for Google Play In-App Updates and the company's RASP security library.",
+      "Bridged to native code through platform channels: on Android (Kotlin) for Google Play In-App Updates and the company's RASP security library, and on iOS for in-app update prompts.",
       "Compared the native Midtrans SDK with a web-hosted payment page together with the backend team, and chose a WebView so payment fixes ship without an app release.",
     ],
     results: [
       "Stayed publishable on Google Play under the 16 KB requirement",
-      "In-app update prompts and runtime security checks running through native Kotlin",
+      "In-app update prompts on Android and iOS, and runtime security checks through native Kotlin",
       "Installment payments live, with a flow that can be fixed without an app release or store review",
     ],
     challenges: [
       "Upgrading many libraries without breaking existing features",
-      "Connecting Flutter with native Kotlin code for updates and security",
+      "Connecting Flutter with native Android and iOS code for updates and security",
       "Learning how payment gateways and installment payments work",
       "Aligning the mobile and backend teams on the right integration approach",
     ],
     learned:
-      "How payment gateways work, and that the best technical decision isn't always the native one: a WebView made the payment flow easier to maintain and fix. I also got comfortable connecting Flutter with native Android code when a feature needs it.",
+      "How payment gateways work, and that the best technical decision isn't always the native one: a WebView made the payment flow easier to maintain and fix. I also got comfortable connecting Flutter with native Android and iOS code when a feature needs it.",
     media: { diagram: "flutterBridges" },
     links: [
       { label: "Google Play", href: play("com.sanf.mobile") },
@@ -270,7 +270,7 @@ export const shippedApps = [
     icon: sanfindIcon,
     caseStudy: "sanfind",
     led: true,
-    role: "Developed features across the app since 2024, including Midtrans installment payments, native Kotlin bridges and 16 KB compliance.",
+    role: "Developed features across the app since 2024, including Midtrans installment payments, native Android and iOS bridges and 16 KB compliance.",
     tech: "Flutter",
     stores: [
       { store: "Google Play", href: play("com.sanf.mobile") },

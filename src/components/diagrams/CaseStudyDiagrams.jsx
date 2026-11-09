@@ -110,16 +110,18 @@ export const FlutterBridgesDiagram = () => (
   <Canvas
     width={480}
     height={480}
-    label="Flutter app calls native Kotlin through platform channels for in-app updates and RASP security checks, and opens a web-hosted Midtrans payment page in a WebView for installments."
+    label="Flutter app calls native code through platform channels: Kotlin on Android for in-app updates and RASP security checks, and iOS for in-app update prompts. It opens a web-hosted Midtrans payment page in a WebView for installments."
     caption="Native bridges and a web-hosted payment flow"
   >
     <Box x={110} y={22} w={260} h={62} color="blue" lines={["Flutter app", "Bloc + Freezed"]} />
 
     <Arrow points={[[170, 84], [120, 150]]} label="MethodChannel" labelAt={[118, 112]} />
-    <Box x={20} y={150} w={200} h={104} color="green">
-      <Label x={120} y={172} lines={["Kotlin (Android)"]} />
-      <Box x={34} y={192} w={172} h={24} color="grey" lines={["Play In-App Updates"]} size={12} />
-      <Box x={34} y={222} w={172} h={24} color="grey" lines={["RASP security checks"]} size={12} />
+    <Box x={20} y={150} w={200} h={166} color="green">
+      <Label x={120} y={170} lines={["Android (Kotlin)"]} />
+      <Box x={34} y={184} w={172} h={24} color="grey" lines={["Play In-App Updates"]} size={12} />
+      <Box x={34} y={214} w={172} h={24} color="grey" lines={["RASP security checks"]} size={12} />
+      <Label x={120} y={260} lines={["iOS"]} />
+      <Box x={34} y={274} w={172} h={24} color="grey" lines={["In-app update prompt"]} size={12} />
     </Box>
 
     <Arrow points={[[310, 84], [360, 150]]} label="WebView" labelAt={[356, 112]} />
@@ -128,8 +130,8 @@ export const FlutterBridgesDiagram = () => (
     <Box x={290} y={254} w={140} h={54} color="orange" lines={["Midtrans", "installments"]} />
 
     <Sticky x={250} y={340} w={210} h={74} rotate={2} lines={["Payment bug? Fix the web page:", "no app release,", "no store review"]} />
-    <Box x={20} y={300} w={200} h={70} color="green" lines={["16 KB page size ✓", "Android 15+ ready"]} />
-    <Label x={120} y={392} lines={["all native deps upgraded"]} size={12} bold={false} color="#5c5f66" />
+    <Box x={20} y={336} w={200} h={62} color="green" lines={["16 KB page size ✓", "Android 15+ ready"]} />
+    <Label x={120} y={416} lines={["all native deps upgraded"]} size={12} bold={false} color="#5c5f66" />
   </Canvas>
 );
 
