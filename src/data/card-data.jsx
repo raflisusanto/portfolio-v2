@@ -1,23 +1,23 @@
-import specifitAdmin from "../../src/assets/thumbnail/FE/Specifit_admin.webp";
-import githubUser from "../../src/assets/thumbnail/FE/Github.webp";
-import specifitFE from "../../src/assets/thumbnail/FE/Specifit.webp";
-import esyarat from "../../src/assets/thumbnail/FE/Esyarat.webp";
-import booku from "../../src/assets/thumbnail/FE/Booku.webp";
-import fabric from "../../src/assets/thumbnail/ML/fabric.webp";
-import defect from "../../src/assets/thumbnail/ML/defect.webp";
-import NFO from "../../src/assets/thumbnail/ML/NFO.webp";
-import arrh from "../../src/assets/thumbnail/ML/Arrh.webp";
-import knn from "../../src/assets/thumbnail/ML/knn.webp";
-import interfest from "../../src/assets/thumbnail/GD/interfest.webp";
-import motionhack from "../../src/assets/thumbnail/GD/motionhack.webp";
-import icoseit from "../../src/assets/thumbnail/GD/icoseit.webp";
-import himaif from "../../src/assets/thumbnail/GD/HIMAIF.webp";
-import mulmed from "../../src/assets/thumbnail/GD/mulmed.webp";
-import specifit from "../../src/assets/thumbnail/GD/specifit.webp";
-import tanamaja from "../../src/assets/thumbnail/GD/tanamaja.webp";
-import moneyflix from "../../src/assets/thumbnail/GD/moneyflix.webp";
-import mizkin from "../../src/assets/thumbnail/GD/mizkin.webp";
-// import temuin from "../../src/assets/thumbnail/GD/temuin.webp";
+import specifitAdmin from "../assets/projects/web-mobile/specifit-admin-website.webp";
+import githubUser from "../assets/projects/web-mobile/github-users-app.webp";
+import specifitFE from "../assets/projects/web-mobile/specifit-mobile-app.webp";
+import esyarat from "../assets/projects/web-mobile/esyarat-website.webp";
+import booku from "../assets/projects/web-mobile/booku-website.webp";
+import fabric from "../assets/projects/machine-learning/fabric-classification.webp";
+import defect from "../assets/projects/machine-learning/defect-detection.webp";
+import NFO from "../assets/projects/machine-learning/nusantara-food-ontology.webp";
+import arrh from "../assets/projects/machine-learning/arrhythmia-classification.webp";
+import knn from "../assets/projects/machine-learning/ga-fuzzy-knn.webp";
+import interfest from "../assets/projects/design/interfest-2022.webp";
+import motionhack from "../assets/projects/design/motionhack-2021.webp";
+import icoseit from "../assets/projects/design/icoseit-2022.webp";
+import himaif from "../assets/projects/design/himaif-telkom-university.webp";
+import mulmed from "../assets/projects/design/multimedia-lab-recruitment-2021.webp";
+import specifit from "../assets/projects/design/specifit-ui-ux.webp";
+import tanamaja from "../assets/projects/design/tanamaja-ui.webp";
+import moneyflix from "../assets/projects/design/moneyflix-ui.webp";
+import mizkin from "../assets/projects/design/mizkin-ui.webp";
+// import temuin from "../assets/projects/design/temuin-ui.webp";
 
 export const projectData = {
   0: [

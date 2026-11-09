@@ -1,9 +1,9 @@
-import githubIcon from "../../assets/images/github_circle.svg";
-import previewIcon from "../../assets/images/preview.svg";
-import downloadIcon from "../../assets/images/download.svg";
-import colabIcon from "../../assets/images/colab.svg";
-import figmaIcon from "../../assets/images/figma.svg";
-import mediumIcon from "../../assets/images/medium.svg";
+import githubIcon from "../../assets/icons/github.svg";
+import previewIcon from "../../assets/icons/preview.svg";
+import downloadIcon from "../../assets/icons/download.svg";
+import colabIcon from "../../assets/icons/colab.svg";
+import figmaIcon from "../../assets/icons/figma.svg";
+import mediumIcon from "../../assets/icons/medium.svg";
 
 const Card = ({
   img,

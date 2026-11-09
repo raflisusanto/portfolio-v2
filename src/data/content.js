@@ -3,19 +3,19 @@
  * Source of truth: D:\web-porto\portfolio-context.md and
  * D:\web-porto\portov2-materials\case-study-project-details.pdf
  */
-import erafoneIcon from "../assets/apps/erafone.webp";
-import eztradeIcon from "../assets/apps/eztrade.webp";
-import galeri24Icon from "../assets/apps/galeri24.webp";
-import indonesianaIcon from "../assets/apps/indonesiana.webp";
-import jdsportsIcon from "../assets/apps/jdsports.webp";
-import maxstreamIcon from "../assets/apps/maxstream.webp";
-import maxstreamShot1 from "../assets/apps/maxstream-shot1.webp";
-import maxstreamTv from "../assets/apps/maxstream-tv.webp";
-import mrtjIcon from "../assets/apps/mrtj.webp";
-import paragonIcon from "../assets/apps/paragon.webp";
-import sanfindIcon from "../assets/apps/sanfind.webp";
-import telkomselIcon from "../assets/apps/telkomsel.webp";
-import portrait from "../assets/rapli.webp";
+import erafoneIcon from "../assets/apps/icons/erafone.webp";
+import eztradeIcon from "../assets/apps/icons/ez-trade-store.webp";
+import galeri24Icon from "../assets/apps/icons/g24-mobile.webp";
+import indonesianaIcon from "../assets/apps/icons/indonesiana-tv.webp";
+import jdsportsIcon from "../assets/apps/icons/jd-sports.webp";
+import maxstreamIcon from "../assets/apps/icons/maxstream-tv.webp";
+import maxstreamShot1 from "../assets/apps/screenshots/maxstream-tv-devices.webp";
+import maxstreamTv from "../assets/apps/screenshots/maxstream-tv-android-tv.webp";
+import mrtjIcon from "../assets/apps/icons/mymrtj.webp";
+import paragonIcon from "../assets/apps/icons/paragon-sfm.webp";
+import sanfindIcon from "../assets/apps/icons/sanfind.webp";
+import telkomselIcon from "../assets/apps/icons/mytelkomsel.webp";
+import portrait from "../assets/profile/portrait.webp";
 
 const play = (id) => `https://play.google.com/store/apps/details?id=${id}`;
 

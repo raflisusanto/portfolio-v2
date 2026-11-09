@@ -1,8 +1,8 @@
 import { motion, useReducedMotion } from "motion/react";
 import { ReactTyped } from "react-typed";
-import codePanel from "../../assets/Asset 1.webp";
-import codeWindow from "../../assets/Asset 2.webp";
-import codeTag from "../../assets/Asset 5.webp";
+import codePanel from "../../assets/hero/ornament-code-panel.webp";
+import codeWindow from "../../assets/hero/ornament-code-window.webp";
+import codeTag from "../../assets/hero/ornament-code-tag.webp";
 import Background from "../background/Background";
 import { profile, stats } from "../../data/content";
 import { glass } from "../ui/Section";
