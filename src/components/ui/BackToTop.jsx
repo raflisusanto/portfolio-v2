@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { ArrowUpIcon } from "./Icons";
 
-/** Round button in the bottom-right corner, shown once the hero is scrolled past. */
+/**
+ * Round button in the bottom-right corner, shown once the hero is scrolled past.
+ * z-40 keeps it below the navbar and the mobile sidebar (both z-50), so the open menu covers it.
+ */
 const BackToTop = () => {
   const [visible, setVisible] = useState(false);
   const reduceMotion = useReducedMotion();

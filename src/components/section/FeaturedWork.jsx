@@ -123,77 +123,37 @@ const CaseStudy = ({ study, flipped }) => {
   const DetailDiagram = study.detailDiagram ? diagrams[study.detailDiagram] : null;
 
   return (
-    <Reveal>
-      <article
-        id={`case-${study.id}`}
-        className={`${glass} scroll-mt-24 p-6 sm:p-8 lg:px-10 lg:py-8`}
-      >
-        {/* Desktop: two columns of about the same height, so a case study fits on one screen */}
-        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-10">
-          <div className={flipped ? "lg:order-2" : ""}>
-            <header>
-              <div className="flex items-center gap-4">
-                <AppLogo study={study} />
-                <div>
-                  <h3 className="text-xl font-bold text-white lg:text-2xl">{study.app}</h3>
-                  <p className="mt-0.5 text-sm text-white/60">{study.context}</p>
+    // The anchor sits outside Reveal, so "#case-…" jumps aren't thrown off by its slide-in offset.
+    <div id={`case-${study.id}`} className="scroll-mt-24">
+      <Reveal>
+        <article className={`${glass} p-6 sm:p-8 lg:px-10 lg:py-8`}>
+          {/* Desktop: two columns of about the same height, so a case study fits on one screen */}
+          <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-10">
+            <div className={flipped ? "lg:order-2" : ""}>
+              <header>
+                <div className="flex items-center gap-4">
+                  <AppLogo study={study} />
+                  <div>
+                    <h3 className="text-xl font-bold text-white lg:text-2xl">{study.app}</h3>
+                    <p className="mt-0.5 text-sm text-white/60">{study.context}</p>
+                  </div>
                 </div>
+                <p className="mt-4 text-lg font-semibold leading-snug text-[#52a5e4] lg:text-xl">
+                  {study.title}
+                </p>
+                <p className="mt-1.5 hidden text-sm italic text-white/70 lg:block">{study.role}</p>
+              </header>
+  
+              {/* Phones/tablets: one-liner, media and results up front; the rest is in "Read more" */}
+              <div className="mt-4 space-y-6 lg:hidden">
+                <p className="text-white/80">{study.summary}</p>
+                <Media media={study.media} />
+                <Results items={study.results} />
+                <Tags tags={study.tags.slice(0, MOBILE_TAGS)} />
+                <Links links={study.links} />
               </div>
-              <p className="mt-4 text-lg font-semibold leading-snug text-[#52a5e4] lg:text-xl">
-                {study.title}
-              </p>
-              <p className="mt-1.5 hidden text-sm italic text-white/70 lg:block">{study.role}</p>
-            </header>
-
-            {/* Phones/tablets: one-liner, media and results up front; the rest is in "Read more" */}
-            <div className="mt-4 space-y-6 lg:hidden">
-              <p className="text-white/80">{study.summary}</p>
-              <Media media={study.media} />
-              <Results items={study.results} />
-              <Tags tags={study.tags.slice(0, MOBILE_TAGS)} />
-              <Links links={study.links} />
-            </div>
-
-            <div className="mt-6 hidden space-y-5 text-[15px] leading-relaxed text-white/80 lg:block">
-              <div>
-                <Heading>Problem</Heading>
-                <p className="mt-2">{study.problem}</p>
-              </div>
-              <div>
-                <Heading>What I did</Heading>
-                <Bullets items={study.approach} />
-              </div>
-              <Tags tags={study.tags} />
-            </div>
-          </div>
-
-          <div className="hidden flex-col gap-5 text-[15px] leading-relaxed lg:flex">
-            <Media media={study.media} />
-            <Results items={study.results} />
-            <Links links={study.links} />
-          </div>
-        </div>
-
-        <details className="group mt-6 border-t border-white/10 pt-5 text-white/80">
-          <summary className="flex cursor-pointer list-none items-center gap-2 font-medium text-white marker:hidden hover:text-[#52a5e4] [&::-webkit-details-marker]:hidden">
-            <span
-              aria-hidden="true"
-              className="inline-block transition-transform group-open:rotate-90"
-            >
-              ▸
-            </span>
-            <span className="lg:hidden">Read the full case study</span>
-            <span className="hidden lg:inline">Read more: challenges and what I learned</span>
-          </summary>
-          <div
-            className={`mt-5 grid gap-8 ${DetailDiagram ? "lg:grid-cols-[1.15fr_1fr] lg:gap-12" : ""}`}
-          >
-            <div className="space-y-5">
-              <div className="space-y-5 lg:hidden">
-                <div>
-                  <Heading>My role</Heading>
-                  <p className="mt-2">{study.role}</p>
-                </div>
+  
+              <div className="mt-6 hidden space-y-5 text-[15px] leading-relaxed text-white/80 lg:block">
                 <div>
                   <Heading>Problem</Heading>
                   <p className="mt-2">{study.problem}</p>
@@ -202,33 +162,73 @@ const CaseStudy = ({ study, flipped }) => {
                   <Heading>What I did</Heading>
                   <Bullets items={study.approach} />
                 </div>
-                {study.tags.length > MOBILE_TAGS && (
-                  <div>
-                    <Heading>Tech</Heading>
-                    <div className="mt-2">
-                      <Tags tags={study.tags} />
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div>
-                <Heading>Challenges</Heading>
-                <Bullets items={study.challenges} />
-              </div>
-              <div>
-                <Heading>What I learned</Heading>
-                <p className="mt-2">{study.learned}</p>
+                <Tags tags={study.tags} />
               </div>
             </div>
-            {DetailDiagram && (
-              <Bleed>
-                <DetailDiagram />
-              </Bleed>
-            )}
+  
+            <div className="hidden flex-col gap-5 text-[15px] leading-relaxed lg:flex">
+              <Media media={study.media} />
+              <Results items={study.results} />
+              <Links links={study.links} />
+            </div>
           </div>
-        </details>
-      </article>
-    </Reveal>
+  
+          <details className="group mt-6 border-t border-white/10 pt-5 text-white/80">
+            <summary className="flex cursor-pointer list-none items-center gap-2 font-medium text-white marker:hidden hover:text-[#52a5e4] [&::-webkit-details-marker]:hidden">
+              <span
+                aria-hidden="true"
+                className="inline-block transition-transform group-open:rotate-90"
+              >
+                ▸
+              </span>
+              <span className="lg:hidden">Read the full case study</span>
+              <span className="hidden lg:inline">Read more: challenges and what I learned</span>
+            </summary>
+            <div
+              className={`mt-5 grid gap-8 ${DetailDiagram ? "lg:grid-cols-[1.15fr_1fr] lg:gap-12" : ""}`}
+            >
+              <div className="space-y-5">
+                <div className="space-y-5 lg:hidden">
+                  <div>
+                    <Heading>My role</Heading>
+                    <p className="mt-2">{study.role}</p>
+                  </div>
+                  <div>
+                    <Heading>Problem</Heading>
+                    <p className="mt-2">{study.problem}</p>
+                  </div>
+                  <div>
+                    <Heading>What I did</Heading>
+                    <Bullets items={study.approach} />
+                  </div>
+                  {study.tags.length > MOBILE_TAGS && (
+                    <div>
+                      <Heading>Tech</Heading>
+                      <div className="mt-2">
+                        <Tags tags={study.tags} />
+                      </div>
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <Heading>Challenges</Heading>
+                  <Bullets items={study.challenges} />
+                </div>
+                <div>
+                  <Heading>What I learned</Heading>
+                  <p className="mt-2">{study.learned}</p>
+                </div>
+              </div>
+              {DetailDiagram && (
+                <Bleed>
+                  <DetailDiagram />
+                </Bleed>
+              )}
+            </div>
+          </details>
+        </article>
+      </Reveal>
+    </div>
   );
 };
 
