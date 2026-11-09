@@ -26,9 +26,8 @@ export const profile = {
   name: "Muhamad Rafli Susanto",
   title: "Mobile Engineer",
   specialties: ["Android", "Android TV", "Flutter", "Kotlin Multiplatform"],
-  // Draft, based on the summary in portfolio-context.md
   tagline:
-    "I build and ship production apps for retail, fintech and media brands, with a focus on video streaming (Media3, Widevine DRM).",
+    "I build and ship production apps for clients in retail, e-commerce, fintech and media.",
   location: "Bandung, Indonesia",
   relocation: "Open to relocation to Germany",
   portrait,
@@ -207,6 +206,7 @@ export const experience = [
       { title: "Junior Software Engineer (Mobile)", period: "Jun 2024 – Jul 2025" },
     ],
     highlights: [
+      "Built and maintained Android and Flutter apps for clients in retail, e-commerce, fintech, sales and media/TV OTT, with a ~99% crash-free rate.",
       "Delivered 15 projects for brands including Samsung, Erafone, Telkomsel, Paragon, MRT Jakarta, Astra and Pegadaian, working with international stakeholders in English.",
       "Technical lead (coordinator) on selected projects, coordinating teams of 2-3 engineers across divisions.",
       "Unified scattered video player features into one reusable Media3 module with Widevine DRM for Android mobile and TV, used for the FIFA World Cup 2026 on MaxstreamTV.",
