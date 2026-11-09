@@ -1,5 +1,8 @@
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { ReactTyped } from "react-typed";
+import codePanel from "../../assets/Asset 1.webp";
+import codeWindow from "../../assets/Asset 2.webp";
+import codeTag from "../../assets/Asset 5.webp";
 import Background from "../background/Background";
 import { profile, stats } from "../../data/content";
 import { glass } from "../ui/Section";
@@ -9,6 +12,27 @@ import {
   MailIcon,
   MapPinIcon,
 } from "../ui/Icons";
+
+/** Decorative code ornaments floating in front of the portrait (from the old About section). */
+const ornaments = [
+  { src: codePanel, className: "-left-12 top-[52%] w-24", duration: 4.5, delay: 0 },
+  { src: codeWindow, className: "-right-14 bottom-[12%] w-44", duration: 5.5, delay: 0.8 },
+  { src: codeTag, className: "-bottom-6 left-6 w-28", duration: 5, delay: 1.6 },
+];
+
+const FloatingOrnament = ({ src, className, duration, delay }) => {
+  const reduceMotion = useReducedMotion();
+  return (
+    <motion.img
+      src={src}
+      alt=""
+      aria-hidden="true"
+      className={`pointer-events-none absolute drop-shadow-2xl ${className}`}
+      animate={reduceMotion ? undefined : { y: [0, -12, 0] }}
+      transition={{ duration, delay, repeat: Infinity, ease: "easeInOut" }}
+    />
+  );
+};
 
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
@@ -128,6 +152,9 @@ const Hero = () => (
             alt={profile.name}
             className={`${glass} w-80 rounded-[2rem] object-cover`}
           />
+          {ornaments.map((ornament) => (
+            <FloatingOrnament key={ornament.src} {...ornament} />
+          ))}
         </div>
       </motion.div>
     </motion.div>
