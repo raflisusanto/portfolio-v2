@@ -9,6 +9,7 @@ import SkillsSection from "./components/section/SkillsSection";
 import CredentialsSection from "./components/section/CredentialsSection";
 import ProjectsSection from "./components/section/ProjectsSection";
 import FooterSection from "./components/section/FooterSection";
+import BackToTop from "./components/ui/BackToTop";
 
 // Loaded as a separate chunk after the page renders.
 const ParticlesBackground = lazy(
@@ -34,6 +35,7 @@ const App = () => (
       <ProjectsSection />
     </main>
     <FooterSection />
+    <BackToTop />
   </>
 );
 

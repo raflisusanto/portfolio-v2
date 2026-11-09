@@ -1,10 +1,13 @@
 import { caseStudies } from "../../data/content";
 import { diagrams } from "../diagrams";
 import Section, { Reveal, Tag, glass } from "../ui/Section";
-import { ArrowUpRightIcon } from "../ui/Icons";
+import { ArrowUpRightIcon, LayoutIcon, TruckIcon } from "../ui/Icons";
 
 /** Tags shown on the card itself on phones/tablets. */
 const MOBILE_TAGS = 3;
+
+/** Generic icons for case studies without a store icon (`logoIcon` in content.js). */
+const fallbackIcons = { layout: LayoutIcon, truck: TruckIcon };
 
 const Heading = ({ children }) => (
   <h4 className="text-xs font-semibold uppercase tracking-widest text-white/50">
@@ -59,34 +62,99 @@ const Media = ({ media }) => {
   return <Screenshots images={media.images} />;
 };
 
+/** The app's store icon, or a generic icon tile when there is none to show. */
+const AppLogo = ({ study }) => {
+  const box =
+    "size-14 shrink-0 rounded-2xl border border-white/15 shadow-lg shadow-black/40 lg:size-16";
+  if (study.logo) {
+    return <img src={study.logo} alt="" className={`${box} object-cover`} />;
+  }
+  const Icon = fallbackIcons[study.logoIcon];
+  return (
+    <div
+      aria-hidden="true"
+      className={`${box} flex items-center justify-center bg-linear-to-br from-[#2e79b2] to-[#183955] text-white`}
+    >
+      <Icon className="size-7 lg:size-8" />
+    </div>
+  );
+};
+
+const Results = ({ items }) => (
+  <div className="rounded-xl border border-[#52a5e4]/30 bg-[#52a5e4]/10 p-4">
+    <Heading>Results</Heading>
+    <ul className="mt-2 space-y-1.5 font-medium text-white">
+      {items.map((item) => (
+        <li key={item} className="flex gap-2">
+          <span aria-hidden="true" className="text-green-400">✓</span>
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+const Tags = ({ tags }) => (
+  <div className="flex flex-wrap gap-2">
+    {tags.map((tag) => (
+      <Tag key={tag}>{tag}</Tag>
+    ))}
+  </div>
+);
+
+const Links = ({ links }) =>
+  links.length > 0 && (
+    <div className="flex flex-wrap gap-3">
+      {links.map((link) => (
+        <a
+          key={link.href}
+          href={link.href}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/20"
+        >
+          {link.label} <ArrowUpRightIcon />
+        </a>
+      ))}
+    </div>
+  );
+
 const CaseStudy = ({ study, flipped }) => {
   const DetailDiagram = study.detailDiagram ? diagrams[study.detailDiagram] : null;
 
   return (
     <Reveal>
       <article
-        className={`${glass} grid gap-8 p-6 sm:p-8 lg:grid-cols-[1.15fr_1fr] lg:gap-12 lg:p-10`}
+        id={`case-${study.id}`}
+        className={`${glass} scroll-mt-24 p-6 sm:p-8 lg:px-10 lg:py-8`}
       >
-        <div className={flipped ? "lg:order-2" : ""}>
-          <p className="text-sm font-medium text-[#52a5e4]">{study.eyebrow}</p>
-          <h3 className="mt-2 text-2xl font-bold leading-snug text-white">
-            {study.title}
-          </h3>
-          {/* Phones/tablets: one-liner + media up front; the rest moves into "Read more" */}
-          <p className="mt-3 text-white/80 lg:hidden">{study.summary}</p>
-          <div className="mt-6 lg:hidden">
-            <Media media={study.media} />
-          </div>
+        {/* Desktop: two columns of about the same height, so a case study fits on one screen */}
+        <div className="lg:grid lg:grid-cols-2 lg:items-start lg:gap-10">
+          <div className={flipped ? "lg:order-2" : ""}>
+            <header>
+              <div className="flex items-center gap-4">
+                <AppLogo study={study} />
+                <div>
+                  <h3 className="text-xl font-bold text-white lg:text-2xl">{study.app}</h3>
+                  <p className="mt-0.5 text-sm text-white/60">{study.context}</p>
+                </div>
+              </div>
+              <p className="mt-4 text-lg font-semibold leading-snug text-[#52a5e4] lg:text-xl">
+                {study.title}
+              </p>
+              <p className="mt-1.5 hidden text-sm italic text-white/70 lg:block">{study.role}</p>
+            </header>
 
-          <p className="mt-3 hidden text-sm italic text-white/70 lg:block">{study.role}</p>
-          <div className="mt-4 hidden flex-wrap gap-2 lg:flex">
-            {study.tags.map((tag) => (
-              <Tag key={tag}>{tag}</Tag>
-            ))}
-          </div>
+            {/* Phones/tablets: one-liner, media and results up front; the rest is in "Read more" */}
+            <div className="mt-4 space-y-6 lg:hidden">
+              <p className="text-white/80">{study.summary}</p>
+              <Media media={study.media} />
+              <Results items={study.results} />
+              <Tags tags={study.tags.slice(0, MOBILE_TAGS)} />
+              <Links links={study.links} />
+            </div>
 
-          <div className="mt-6 space-y-5 text-white/80">
-            <div className="hidden space-y-5 lg:block">
+            <div className="mt-6 hidden space-y-5 text-[15px] leading-relaxed text-white/80 lg:block">
               <div>
                 <Heading>Problem</Heading>
                 <p className="mt-2">{study.problem}</p>
@@ -95,51 +163,18 @@ const CaseStudy = ({ study, flipped }) => {
                 <Heading>What I did</Heading>
                 <Bullets items={study.approach} />
               </div>
-            </div>
-            <div className="rounded-xl border border-[#52a5e4]/30 bg-[#52a5e4]/10 p-4">
-              <Heading>Results</Heading>
-              <ul className="mt-2 space-y-1.5 font-medium text-white">
-                {study.results.map((item) => (
-                  <li key={item} className="flex gap-2">
-                    <span aria-hidden="true" className="text-green-400">✓</span>
-                    {item}
-                  </li>
-                ))}
-              </ul>
+              <Tags tags={study.tags} />
             </div>
           </div>
 
-          {/* Phones/tablets: first 3 tags under the results (all of them in "Read more") */}
-          <div className="mt-5 flex flex-wrap gap-2 lg:hidden">
-            {study.tags.slice(0, MOBILE_TAGS).map((tag) => (
-              <Tag key={tag}>{tag}</Tag>
-            ))}
+          <div className="hidden flex-col gap-5 text-[15px] leading-relaxed lg:flex">
+            <Media media={study.media} />
+            <Results items={study.results} />
+            <Links links={study.links} />
           </div>
-
-          {study.links.length > 0 && (
-            <div className="mt-6 flex flex-wrap gap-3">
-              {study.links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-4 py-2 text-sm text-white transition hover:bg-white/20"
-                >
-                  {link.label} <ArrowUpRightIcon />
-                </a>
-              ))}
-            </div>
-          )}
         </div>
 
-        <div
-          className={`hidden self-start lg:sticky lg:top-24 lg:block ${flipped ? "lg:order-1" : ""}`}
-        >
-          <Media media={study.media} />
-        </div>
-
-        <details className="group border-t border-white/10 pt-5 text-white/80 lg:order-3 lg:col-span-2">
+        <details className="group mt-6 border-t border-white/10 pt-5 text-white/80">
           <summary className="flex cursor-pointer list-none items-center gap-2 font-medium text-white marker:hidden hover:text-[#52a5e4] [&::-webkit-details-marker]:hidden">
             <span
               aria-hidden="true"
@@ -170,10 +205,8 @@ const CaseStudy = ({ study, flipped }) => {
                 {study.tags.length > MOBILE_TAGS && (
                   <div>
                     <Heading>Tech</Heading>
-                    <div className="mt-2 flex flex-wrap gap-2">
-                      {study.tags.map((tag) => (
-                        <Tag key={tag}>{tag}</Tag>
-                      ))}
+                    <div className="mt-2">
+                      <Tags tags={study.tags} />
                     </div>
                   </div>
                 )}

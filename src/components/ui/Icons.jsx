@@ -38,3 +38,24 @@ export const ArrowUpRightIcon = ({ className = "size-3.5" }) => (
     <path d="M7 17 17 7M7 7h10v10" />
   </svg>
 );
+
+export const ArrowUpIcon = ({ className = "size-5" }) => (
+  <svg {...base} className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 19V5M5 12l7-7 7 7" />
+  </svg>
+);
+
+export const LayoutIcon = ({ className = "size-6" }) => (
+  <svg {...base} className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2" />
+    <path d="M3 9h18M9 21V9" />
+  </svg>
+);
+
+export const TruckIcon = ({ className = "size-6" }) => (
+  <svg {...base} className={className} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2M15 18H9M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.62l-3.48-4.35A1 1 0 0 0 17.52 8H14" />
+    <circle cx="17" cy="18" r="2" />
+    <circle cx="7" cy="18" r="2" />
+  </svg>
+);
