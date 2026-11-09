@@ -14,14 +14,20 @@ const chunkArray = (array, size) => {
 
 const ProjectsSection = () => {
   const [selected, setSelected] = useState(0);
-  const [chunkSize, setChunkSize] = useState(2);
+  const [chunkSize, setChunkSize] = useState(3);
 
+  // Cards per slide: 1 on phones, 2 on tablets, 3 on desktop (Tailwind sm / lg breakpoints)
   useEffect(() => {
-    const query = window.matchMedia("(max-width: 720px)");
-    const update = () => setChunkSize(query.matches ? 1 : 2);
+    const sm = window.matchMedia("(min-width: 640px)");
+    const lg = window.matchMedia("(min-width: 1024px)");
+    const update = () => setChunkSize(lg.matches ? 3 : sm.matches ? 2 : 1);
     update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
+    sm.addEventListener("change", update);
+    lg.addEventListener("change", update);
+    return () => {
+      sm.removeEventListener("change", update);
+      lg.removeEventListener("change", update);
+    };
   }, []);
 
   return (
@@ -32,7 +38,7 @@ const ProjectsSection = () => {
       subtitle="Personal, university and bootcamp projects, plus UI/UX and event design from my student years."
     >
       <Reveal>
-        <div className="mb-6 flex flex-wrap gap-3">
+        <div className="mb-8 flex flex-wrap gap-3">
           {projectCategories.map((category, i) => (
             <button
               key={category}
@@ -53,7 +59,7 @@ const ProjectsSection = () => {
           {chunkArray(projectData[selected], chunkSize).map((chunk, chunkIndex) => (
             <div
               key={chunkIndex}
-              className="flex items-start justify-center gap-6 pb-16 pt-2"
+              className="grid h-full gap-6 sm:grid-cols-2 lg:grid-cols-3"
             >
               {chunk.map((project) => (
                 <Card key={project.title} {...project} />

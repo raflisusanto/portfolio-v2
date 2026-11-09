@@ -4,78 +4,57 @@ import downloadIcon from "../../assets/icons/download.svg";
 import colabIcon from "../../assets/icons/colab.svg";
 import figmaIcon from "../../assets/icons/figma.svg";
 import mediumIcon from "../../assets/icons/medium.svg";
+import { Tag, glass } from "./Section";
 
-const Card = ({
-  img,
-  title,
-  desc,
-  techStack,
-  githubLink,
-  previewLink,
-  apkLink,
-  colabLink,
-  figmaLink,
-  mediumLink,
-}) => {
-  return (
-    <div className="max-w-xs xl:max-w-md text-white font-light text-sm bg-white/10 rounded-2xl bg-clip-padding backdrop-blur-md border border-white/20">
-      <div className="h-40 xl:h-48 overflow-hidden">
-        <img className="rounded-t-lg" src={img} alt="" />
+/** Link fields a project can have, in display order. */
+const linkTypes = [
+  { key: "githubLink", label: "Code", icon: githubIcon },
+  { key: "previewLink", label: "Preview", icon: previewIcon },
+  { key: "apkLink", label: "APK", icon: downloadIcon },
+  { key: "colabLink", label: "Colab", icon: colabIcon },
+  { key: "figmaLink", label: "Figma", icon: figmaIcon },
+  { key: "mediumLink", label: "Case study", icon: mediumIcon },
+];
+
+/** Project card. Stretches to the height of its row so every card lines up. */
+const Card = ({ img, imgPosition = "center", title, desc, tags = [], ...links }) => (
+  <article className={`${glass} flex h-full flex-col overflow-hidden`}>
+    <img
+      src={img}
+      alt=""
+      loading="lazy"
+      className="aspect-video w-full bg-white/5 object-cover"
+      style={{ objectPosition: imgPosition }}
+    />
+    <div className="flex flex-1 flex-col p-5">
+      <h3 className="text-lg font-semibold leading-snug text-white">{title}</h3>
+      <p className="mt-2 text-sm text-white/70">{desc}</p>
+
+      <div className="mt-4 flex flex-wrap gap-1.5">
+        {tags.map((tag) => (
+          <Tag key={tag}>{tag}</Tag>
+        ))}
       </div>
-      <div className="p-5">
-        <h5 className="mb-2 text-lg xl:text-xl font-bold tracking-tight text-white">
-          {title}
-        </h5>
-        <p className="mb-4 text-xs xl:text-sm font-normal text-gray-400">
-          {desc}
-        </p>
 
-        {techStack && (
-          <p className="mb-2 font-normal text-gray-400">
-            <span className="font-bold">Tech Stack:</span> {techStack}
-          </p>
-        )}
-
-        <div className="flex gap-4 items-center">
-          {githubLink && (
-            <a href={githubLink} target="_blank" className="icon-link">
-              <img src={githubIcon} alt="GitHub" className="icon" />
+      <div className="mt-auto flex flex-wrap gap-2 pt-5">
+        {linkTypes
+          .filter(({ key }) => links[key])
+          .map(({ key, label, icon }) => (
+            <a
+              key={key}
+              href={links[key]}
+              target="_blank"
+              rel="noreferrer"
+              aria-label={`${title}: ${label}`}
+              className="inline-flex items-center gap-1.5 rounded-lg bg-white/10 px-3 py-1.5 text-xs text-white transition hover:bg-white/20"
+            >
+              <img src={icon} alt="" className="size-4" />
+              {label}
             </a>
-          )}
-
-          {previewLink && (
-            <a href={previewLink} target="_blank" className="icon-link">
-              <img src={previewIcon} alt="Preview" className="icon" />
-            </a>
-          )}
-
-          {apkLink && (
-            <a href={apkLink} target="_blank" className="icon-link">
-              <img src={downloadIcon} alt="APK" className="icon" />
-            </a>
-          )}
-
-          {colabLink && (
-            <a href={colabLink} target="_blank" className="icon-link">
-              <img src={colabIcon} alt="Colab" className="icon" />
-            </a>
-          )}
-
-          {figmaLink && (
-            <a href={figmaLink} target="_blank" className="icon-link">
-              <img src={figmaIcon} alt="Figma" className="icon" />
-            </a>
-          )}
-
-          {mediumLink && (
-            <a href={mediumLink} target="_blank" className="icon-link">
-              <img src={mediumIcon} alt="Medium" className="icon" />
-            </a>
-          )}
-        </div>
+          ))}
       </div>
     </div>
-  );
-};
+  </article>
+);
 
 export default Card;
