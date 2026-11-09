@@ -7,7 +7,7 @@ const ShippedApps = () => (
   <Section
     eyebrow="In production"
     title="Apps I've worked on"
-    subtitle="Client apps for well-known brands, live on Google Play, the App Store and Huawei AppGallery."
+    subtitle="Client apps for well-known brands, live on Google Play, the App Store and Huawei AppGallery. On the ones I didn't lead, I worked on the features listed."
     className="pt-0 lg:pt-0"
   >
     <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -31,8 +31,14 @@ const ShippedApps = () => (
                 <h3 className="truncate font-semibold text-white">{app.name}</h3>
                 <p className="text-sm text-white/60">{app.client}</p>
               </div>
+              {app.led && (
+                <span className="ml-auto shrink-0 self-start rounded-full bg-green-500/15 px-2.5 py-0.5 text-xs font-medium text-green-300">
+                  Tech lead
+                </span>
+              )}
             </div>
             <p className="mt-4 flex-1 text-sm text-white/75">{app.role}</p>
+            <p className="mt-3 text-xs font-medium text-[#52a5e4]">{app.tech}</p>
             <div className="mt-4 flex flex-wrap gap-2">
               {app.stores.map((store) => (
                 <a
