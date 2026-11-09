@@ -171,7 +171,7 @@ export const caseStudies = [
     context: "Nusantara Beta Studio · Fintech · 2024–2026",
     title: "Keeping a fintech Flutter app current, secure and store-compliant",
     summary: "Kept a fintech Flutter app compliant and secure: Google Play's 16 KB requirement, native Kotlin bridges, and installment payments that can be fixed without app updates.",
-    role: "Tech lead and coordinator on a series of change requests, working closely with the backend team.",
+    role: "Tech lead and coordinator since 2024, developing features across the app and working closely with the backend team.",
     tags: ["Flutter", "Bloc + Freezed", "Platform channels (Kotlin)", "Midtrans", "WebView"],
     problem:
       "An existing app with outdated libraries was at risk of falling behind store rules: Google Play's 16 KB page size requirement for Android 15+ had to be met to keep publishing updates. The app also lacked in-app update prompts and the company's runtime security checks, and needed a new installment-payment feature.",
@@ -270,7 +270,7 @@ export const shippedApps = [
     icon: sanfindIcon,
     caseStudy: "sanfind",
     led: true,
-    role: "Change requests: 16 KB compliance, native Kotlin bridges, Midtrans installment payments.",
+    role: "Developed features across the app since 2024, including Midtrans installment payments, native Kotlin bridges and 16 KB compliance.",
     tech: "Flutter",
     stores: [
       { store: "Google Play", href: play("com.sanf.mobile") },
