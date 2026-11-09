@@ -34,7 +34,10 @@ const Sidebar = () => {
       animate={open ? "open" : "closed"}
     >
       <ToggleButton setOpen={setOpen} />
-      <Links />
+      {/* inert while closed so hidden links aren't reachable with Tab */}
+      <div inert={!open}>
+        <Links onNavigate={() => setOpen(false)} />
+      </div>
     </motion.div>
   );
 };

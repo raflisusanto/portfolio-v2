@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { navItems } from "../../data/content";
 
 const variants = {
   open: {
@@ -25,8 +26,8 @@ const itemVariants = {
   },
 };
 
-const Links = () => {
-  const items = ["Home", "About", "Projects", "Contact"];
+const Links = ({ onNavigate }) => {
+  const items = [{ id: "home", label: "Home" }, ...navItems];
 
   return (
     <motion.div
@@ -36,13 +37,14 @@ const Links = () => {
       {items.map((item) => (
         <motion.a
           className="pt-3 font-light"
-          href={`#${item}`}
-          key={item}
+          href={`#${item.id}`}
+          key={item.id}
+          onClick={onNavigate}
           variants={itemVariants}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          {item}
+          {item.label}
         </motion.a>
       ))}
     </motion.div>

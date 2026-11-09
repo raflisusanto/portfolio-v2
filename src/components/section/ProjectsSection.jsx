@@ -1,166 +1,68 @@
-import { motion } from "motion/react";
-import BackgroundFlipped from "../background/BackgroundFlipped";
+import { useEffect, useState } from "react";
 import Card from "../ui/Card";
 import Carousel from "../ui/Carousel";
-import Chip from "../ui/Chip";
-import { projectData } from "../../data/card-data";
+import Section, { Reveal } from "../ui/Section";
+import { projectCategories, projectData } from "../../data/card-data";
 
-import { useState, useEffect } from "react";
+const chunkArray = (array, size) => {
+  const chunks = [];
+  for (let i = 0; i < array.length; i += size) {
+    chunks.push(array.slice(i, i + size));
+  }
+  return chunks;
+};
 
 const ProjectsSection = () => {
-  const [selectedChip, setSelectedChip] = useState(0);
+  const [selected, setSelected] = useState(0);
   const [chunkSize, setChunkSize] = useState(2);
 
-  const titleVariants = {
-    initial: {
-      y: -100,
-      opacity: 0,
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 1,
-      },
-    },
-  };
-
-  const projectVariants = {
-    initial: {
-      y: 100,
-      opacity: 0,
-    },
-    animate: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 1,
-      },
-    },
-  };
-
-  const chunkArray = (array, chunkSize) => {
-    const chunks = [];
-    for (let i = 0; i < array.length; i += chunkSize) {
-      chunks.push(array.slice(i, i + chunkSize));
-    }
-    return chunks;
-  };
-
-  const chipOnClickHandler = (newValue) => {
-    setSelectedChip(newValue);
-  };
-
-  const setChipOpacity = (selected) => {
-    if (selectedChip === selected) {
-      return "bg-white/30";
-    }
-    return "bg-white/10 hover:bg-white/20";
-  };
-
   useEffect(() => {
-    const handleResize = () => {
-      if (window.matchMedia("(max-width: 720px)").matches) {
-        setChunkSize(1);
-      } else {
-        setChunkSize(2);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    // Call handleResize initially
-    handleResize();
-
-    // Cleanup function to remove event listener
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    const query = window.matchMedia("(max-width: 720px)");
+    const update = () => setChunkSize(query.matches ? 1 : 2);
+    update();
+    query.addEventListener("change", update);
+    return () => query.removeEventListener("change", update);
   }, []);
 
   return (
-    <section id="Projects" className="h-[60rem]">
-      <BackgroundFlipped inset="20" />
-      <div className="flex justify-center pt-12 flex-col items-center">
-        <motion.h1
-          className="text-2xl xl:text-3xl text-white font-bold"
-          variants={titleVariants}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-        >
-          My{" "}
-          <span className="underline underline-offset-4 text-[#52a5e4]">
-            Projects
-          </span>
-        </motion.h1>
-        <motion.h5
-          className="text-base xl:text-lg text-white/80 font-light"
-          variants={titleVariants}
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-        >
-          All my notable personal projects heheheh.
-        </motion.h5>
-        <motion.div
-          className="flex gap-4 mt-6"
-          variants={titleVariants}
-          initial="initial"
-          whileInView="animate"
-        >
-          <Chip
-            name={`${chunkSize === 2 ? "FE/Mobile Development" : "FE/MD"}`}
-            className={`${setChipOpacity(0)}`}
-            onClick={() => chipOnClickHandler(0)}
-          />
-          <Chip
-            name={`${chunkSize === 2 ? "Machine Learning" : "ML"}`}
-            className={`${setChipOpacity(1)}`}
-            onClick={() => chipOnClickHandler(1)}
-          />
-          <Chip
-            name={`${chunkSize === 2 ? "Graphic Design" : "GD"}`}
-            className={`${setChipOpacity(2)}`}
-            onClick={() => chipOnClickHandler(2)}
-          />
-        </motion.div>
-        <motion.div
-          className="flex justify-center mt-6 w-full max-w-6xl"
-          variants={projectVariants}
-          initial="initial"
-          whileInView="animate"
-        >
-          {/* key resets the carousel to slide 1 when switching category */}
-          <Carousel key={`${selectedChip}-${chunkSize}`}>
-            {chunkArray(projectData[selectedChip], chunkSize).map(
-              (chunk, chunkIndex) => (
-                <div
-                  key={chunkIndex}
-                  className="flex justify-center items-start gap-6 pt-2 pb-16"
-                >
-                  {chunk.map((project, projectIndex) => (
-                    <Card
-                      key={projectIndex}
-                      img={project.img}
-                      title={project.title}
-                      desc={project.desc}
-                      techStack={project.techStack}
-                      githubLink={project.githubLink}
-                      previewLink={project.previewLink}
-                      apkLink={project.apkLink}
-                      colabLink={project.colabLink}
-                      figmaLink={project.figmaLink}
-                      mediumLink={project.mediumLink}
-                    />
-                  ))}
-                </div>
-              )
-            )}
-          </Carousel>
-        </motion.div>
-      </div>
-    </section>
+    <Section
+      id="projects"
+      eyebrow="Before & beside work"
+      title="Earlier projects"
+      subtitle="Personal, university and bootcamp projects, with source code on GitHub."
+    >
+      <Reveal>
+        <div className="mb-6 flex flex-wrap gap-3">
+          {projectCategories.map((category, i) => (
+            <button
+              key={category}
+              type="button"
+              aria-pressed={selected === i}
+              onClick={() => setSelected(i)}
+              className={`rounded-full border border-white/20 px-5 py-1.5 text-sm text-white backdrop-blur-md transition ${
+                selected === i ? "bg-white/30" : "bg-white/10 hover:bg-white/20"
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
+
+        {/* key resets the carousel to slide 1 when switching category */}
+        <Carousel key={`${selected}-${chunkSize}`}>
+          {chunkArray(projectData[selected], chunkSize).map((chunk, chunkIndex) => (
+            <div
+              key={chunkIndex}
+              className="flex items-start justify-center gap-6 pb-16 pt-2"
+            >
+              {chunk.map((project) => (
+                <Card key={project.title} {...project} />
+              ))}
+            </div>
+          ))}
+        </Carousel>
+      </Reveal>
+    </Section>
   );
 };
 

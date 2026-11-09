@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import { useEffect, useState } from "react";
+import { navItems } from "../../data/content";
 
 const navbarVariants = {
   initial: {
@@ -14,7 +15,6 @@ const navbarVariants = {
 };
 
 const Navbar = () => {
-  const items = ["Home", "About", "Projects", "Contact"];
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -48,17 +48,24 @@ const Navbar = () => {
       initial="initial"
       animate="animate"
     >
-      <ul className="py-2 px-20 flex gap-12 text-white font-light text-sm bg-white/10 rounded-2xl bg-clip-padding backdrop-blur-md border border-white/20">
-        {items.map((item) => (
-          <motion.li
-            key={item}
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <a href={`#${item}`}>{item}</a>
-          </motion.li>
-        ))}
-      </ul>
+      <nav aria-label="Main">
+        <ul className="flex items-center gap-10 rounded-2xl border border-white/20 bg-white/10 bg-clip-padding px-10 py-2.5 text-sm font-light text-white backdrop-blur-md">
+          <li>
+            <a href="#home" className="font-semibold">
+              Rafli
+            </a>
+          </li>
+          {navItems.map((item) => (
+            <motion.li
+              key={item.id}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <a href={`#${item.id}`}>{item.label}</a>
+            </motion.li>
+          ))}
+        </ul>
+      </nav>
     </motion.header>
   );
 };

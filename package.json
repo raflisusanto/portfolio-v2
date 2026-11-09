@@ -14,17 +14,12 @@
     "images:webp": "node scripts/convert-to-webp.js"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^7.3.1",
-    "@fortawesome/free-solid-svg-icons": "^7.3.1",
-    "@fortawesome/react-fontawesome": "^3.5.0",
     "@tsparticles/react": "^4.5.1",
-    "clsx": "^2.1.1",
+    "@tsparticles/slim": "^4.5.1",
     "motion": "^14.9.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
-    "react-typed": "^2.0.12",
-    "tailwind-merge": "^3.7.0",
-    "tsparticles": "^4.5.1"
+    "react-typed": "^2.0.12"
   },
   "devDependencies": {
     "@babel/core": "^7.29.7",

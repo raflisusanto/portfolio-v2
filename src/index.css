@@ -18,14 +18,21 @@
 @layer base {
   html {
     font-family: "Inter", system-ui, sans-serif;
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
     overflow-x: hidden;
+    color-scheme: dark;
   }
 
   body {
     overflow-x: hidden;
-    background-color: #134f7c;
+    background-color: #061e33;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
   }
 
   /* Tailwind v4 no longer gives buttons a pointer cursor by default. */
