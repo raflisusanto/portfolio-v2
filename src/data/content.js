@@ -21,7 +21,7 @@ const play = (id) => `https://play.google.com/store/apps/details?id=${id}`;
 export const profile = {
   name: "Muhamad Rafli Susanto",
   title: "Mobile Engineer",
-  specialties: ["Android", "Android TV", "Flutter", "Kotlin Multiplatform"],
+  specialties: ["Android", "Android TV", "Flutter", "Kotlin Multiplatform", "React Native"],
   tagline:
     "I build and ship production apps for clients in retail, e-commerce, fintech and media.",
   location: "Bandung, Indonesia",
@@ -50,6 +50,7 @@ export const navItems = [
 
 /**
  * Featured case studies, in priority order.
+ * `app` + `logo` (store icon), or `logoIcon` (a generic icon) when there is no app icon to show.
  * `summary`: one-liner shown on phones/tablets instead of the role, problem and approach.
  * `media`: screenshots, or the key of a diagram in components/diagrams.
  * `detailDiagram`: optional extra diagram inside "Read more".
@@ -57,7 +58,9 @@ export const navItems = [
 export const caseStudies = [
   {
     id: "maxstream",
-    eyebrow: "Nusantara Beta Studio · MaxstreamTV · 2026",
+    app: "MAXStream TV",
+    logo: maxstreamIcon,
+    context: "Nusantara Beta Studio · Media / OTT · 2026",
     title: "One video player module for mobile and TV, streaming the FIFA World Cup 2026",
     summary: "A unified video player module for Android mobile and Android TV, used for live streaming of the FIFA World Cup 2026.",
     role: "Tech lead for Android. Built the player module, its error handling and the DRM integration, on the Android and Android TV side of a Kotlin Multiplatform app.",
@@ -96,7 +99,9 @@ export const caseStudies = [
   },
   {
     id: "erafone",
-    eyebrow: "Nusantara Beta Studio · Erafone · 2025–2026",
+    app: "Erafone",
+    logo: erafoneIcon,
+    context: "Nusantara Beta Studio · E-commerce · 2025–2026",
     title: "An e-commerce app on Google Play in 2 months, then on Huawei AppGallery from the same codebase",
     summary: "Shipped the Erafone shopping app to Google Play in 2 months despite unclear requirements, then brought it to Huawei AppGallery solo from the same codebase.",
     role: "Tech lead and coordinator of 3 engineers through launch, then the main developer. Built the Huawei version solo.",
@@ -129,7 +134,9 @@ export const caseStudies = [
   },
   {
     id: "sdui",
-    eyebrow: "PT Inti Utama Solusindo · Healthcare · 2023–2024",
+    app: "Server-driven UI framework",
+    logoIcon: "layout",
+    context: "PT Inti Utama Solusindo · Healthcare · 2023–2024",
     title: "A server-driven UI framework that made web app development 3x faster",
     summary: "A Flutter framework that let the team build web apps 3x faster, powering 3 web apps used internally and across 100+ clinics in Indonesia.",
     role: "Designed and built it as an intern. As Supervisor Frontend Developer, led its adoption across a team of 5 front-end engineers.",
@@ -159,7 +166,9 @@ export const caseStudies = [
   },
   {
     id: "sanfind",
-    eyebrow: "Nusantara Beta Studio · SANFIND · Fintech · 2024–2026",
+    app: "SANFIND",
+    logo: sanfindIcon,
+    context: "Nusantara Beta Studio · Fintech · 2024–2026",
     title: "Keeping a fintech Flutter app current, secure and store-compliant",
     summary: "Kept a fintech Flutter app compliant and secure: Google Play's 16 KB requirement, native Kotlin bridges, and installment payments that can be fixed without app updates.",
     role: "Tech lead and coordinator on a series of change requests, working closely with the backend team.",
@@ -193,7 +202,9 @@ export const caseStudies = [
   },
   {
     id: "udms",
-    eyebrow: "Nusantara Beta Studio · Astra UD Trucks · 2024",
+    app: "Astra UD Trucks",
+    logoIcon: "truck",
+    context: "Nusantara Beta Studio · Internal app · 2024",
     title: "Native modules and automated UI tests for a React Native app",
     summary: "A React Native app for Astra UD Trucks, where I also contributed to building the company's automated mobile UI tests with Appium.",
     role: "Tech lead and coordinator. Built features, wrote the native modules and contributed to building the Appium test setup.",
@@ -222,14 +233,18 @@ export const caseStudies = [
   },
 ];
 
-/** Client apps with public store pages. `led`: I was tech lead / coordinator. */
+/**
+ * Client apps with public store pages. `led`: I was tech lead / coordinator.
+ * `caseStudy`: id of the matching entry in caseStudies, shown as a "Case study" button.
+ */
 export const shippedApps = [
   {
     name: "MAXStream TV",
     client: "Media / OTT",
     icon: maxstreamIcon,
+    caseStudy: "maxstream",
     led: true,
-    role: "Built the unified video player module with DRM for Android and Android TV. See the case study.",
+    role: "Built the unified video player module with DRM for Android and Android TV.",
     tech: "Kotlin Multiplatform · Media3",
     stores: [
       { store: "Google Play", href: play("com.maxstream") },
@@ -240,6 +255,7 @@ export const shippedApps = [
     name: "Erafone",
     client: "Erafone · Retail",
     icon: erafoneIcon,
+    caseStudy: "erafone",
     led: true,
     role: "Launched on Google Play in 2 months, then built the AppGallery version solo.",
     tech: "Android · Kotlin",
@@ -252,6 +268,7 @@ export const shippedApps = [
     name: "SANFIND",
     client: "SANFIND · Fintech",
     icon: sanfindIcon,
+    caseStudy: "sanfind",
     led: true,
     role: "Change requests: 16 KB compliance, native Kotlin bridges, Midtrans installment payments.",
     tech: "Flutter",

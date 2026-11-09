@@ -1,7 +1,7 @@
 import { motion } from "motion/react";
 import { shippedApps } from "../../data/content";
 import Section, { glass } from "../ui/Section";
-import { ArrowUpRightIcon } from "../ui/Icons";
+import { ArrowUpIcon, ArrowUpRightIcon } from "../ui/Icons";
 
 const ShippedApps = () => (
   <Section
@@ -40,6 +40,15 @@ const ShippedApps = () => (
             <p className="mt-4 flex-1 text-sm text-white/75">{app.role}</p>
             <p className="mt-3 text-xs font-medium text-[#52a5e4]">{app.tech}</p>
             <div className="mt-4 flex flex-wrap gap-2">
+              {app.caseStudy && (
+                <a
+                  href={`#case-${app.caseStudy}`}
+                  aria-label={`${app.name} case study`}
+                  className="inline-flex items-center gap-1 rounded-md bg-[#2e79b2] px-2.5 py-1 text-xs font-medium text-white transition hover:bg-[#52a5e4]"
+                >
+                  Case study <ArrowUpIcon className="size-3" />
+                </a>
+              )}
               {app.stores.map((store) => (
                 <a
                   key={store.href}
