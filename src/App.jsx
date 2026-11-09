@@ -1,54 +1,40 @@
+import { lazy, Suspense } from "react";
 import Sidebar from "./components/sidebar/Sidebar";
 import Navbar from "./components/navbar/Navbar";
+import Hero from "./components/hero/Hero";
+import FeaturedWork from "./components/section/FeaturedWork";
+import ShippedApps from "./components/section/ShippedApps";
+import ExperienceSection from "./components/section/ExperienceSection";
+import SkillsSection from "./components/section/SkillsSection";
+import CredentialsSection from "./components/section/CredentialsSection";
 import ProjectsSection from "./components/section/ProjectsSection";
-import AboutSection from "./components/section/AboutSection";
-import HomeSection from "./components/section/HomeSection";
 import FooterSection from "./components/section/FooterSection";
-import Particles, {
-  ParticlesProvider,
-  useParticlesProvider,
-} from "@tsparticles/react";
-import { loadFull } from "tsparticles";
-import particlesConfig from "./components/config/particles-config";
-import Loading from "./components/ui/Loading";
 
-// Registers all tsParticles plugins once, before any <Particles> renders.
-const initParticles = async (engine) => {
-  await loadFull(engine);
-};
-
-const Content = () => {
-  const { loaded } = useParticlesProvider();
-
-  // Add some loading before particles loaded
-  if (!loaded) return <Loading />;
-
-  return (
-    <>
-      {/* Particles */}
-      <Particles
-        id="tsparticles"
-        options={particlesConfig}
-        className="absolute z-[-2]"
-      />
-
-      {/* Navigations */}
-      <Sidebar />
-      <Navbar />
-
-      {/* Main Sections */}
-      <HomeSection />
-      <AboutSection />
-      <ProjectsSection />
-      <FooterSection />
-    </>
-  );
-};
+// Loaded as a separate chunk after the page renders.
+const ParticlesBackground = lazy(
+  () => import("./components/background/ParticlesBackground")
+);
 
 const App = () => (
-  <ParticlesProvider init={initParticles}>
-    <Content />
-  </ParticlesProvider>
+  <>
+    <Suspense fallback={null}>
+      <ParticlesBackground />
+    </Suspense>
+
+    <Sidebar />
+    <Navbar />
+
+    <main>
+      <Hero />
+      <FeaturedWork />
+      <ShippedApps />
+      <ExperienceSection />
+      <SkillsSection />
+      <CredentialsSection />
+      <ProjectsSection />
+    </main>
+    <FooterSection />
+  </>
 );
 
 export default App;

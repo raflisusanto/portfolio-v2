@@ -29,14 +29,18 @@ const particlesConfig = {
     },
   },
   particles: {
-    color: {
-      value: "#2e79b2",
+    // tsParticles v4 reads the fill color from `paint` (the old `color` key is ignored → white)
+    paint: {
+      fill: {
+        enable: true,
+        color: { value: "#2e79b2" },
+      },
     },
     links: {
       color: "#44a6f0",
-      distance: "150",
-      enable: "true",
-      opacity: 0.5,
+      distance: 150,
+      enable: true,
+      opacity: 0.25,
       width: 1,
     },
     collisions: {
@@ -44,11 +48,11 @@ const particlesConfig = {
     },
     move: {
       directions: "none",
-      enable: "true",
+      enable: true,
       outModes: {
         default: "bounce",
       },
-      random: "false",
+      random: false,
       speed: 1,
       straight: false,
     },
@@ -60,7 +64,7 @@ const particlesConfig = {
       value: 100,
     },
     opacity: {
-      value: 0.4,
+      value: 0.3,
     },
     shape: {
       type: "circle",

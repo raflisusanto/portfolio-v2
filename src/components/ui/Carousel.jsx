@@ -8,9 +8,7 @@ const ArrowButton = ({ direction, onClick }) => (
     type="button"
     aria-label={direction === "prev" ? "Previous slide" : "Next slide"}
     onClick={onClick}
-    className={`absolute top-1/2 -translate-y-1/2 z-10 grid place-items-center size-12 rounded-lg text-white transition hover:bg-white/10 active:bg-white/30 ${
-      direction === "prev" ? "left-0" : "right-0"
-    }`}
+    className="grid size-10 place-items-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-md transition hover:bg-white/20 active:bg-white/30"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -18,7 +16,7 @@ const ArrowButton = ({ direction, onClick }) => (
       viewBox="0 0 24 24"
       strokeWidth={2}
       stroke="currentColor"
-      className="size-6"
+      className="size-5"
     >
       <path
         strokeLinecap="round"
@@ -36,6 +34,8 @@ const ArrowButton = ({ direction, onClick }) => (
 /**
  * Minimal slide carousel built on motion.
  * Each child is one slide. Supports arrows, dots and swipe/drag.
+ * Slides stretch to the tallest one; controls sit in a row below, so the
+ * slides use the full width.
  */
 const Carousel = ({ children, className = "" }) => {
   const slides = Array.isArray(children) ? children : [children];
@@ -50,7 +50,7 @@ const Carousel = ({ children, className = "" }) => {
   };
 
   return (
-    <div className={`relative w-full px-12 sm:px-16 ${className}`}>
+    <div className={`w-full ${className}`}>
       <div className="overflow-hidden">
         <motion.div
           className="flex"
@@ -72,11 +72,8 @@ const Carousel = ({ children, className = "" }) => {
       </div>
 
       {count > 1 && (
-        <>
-          <ArrowButton direction="prev" onClick={() => goTo(index - 1)} />
-          <ArrowButton direction="next" onClick={() => goTo(index + 1)} />
-
-          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+        <div className="mt-6 flex items-center justify-between gap-4">
+          <div className="flex gap-2">
             {slides.map((_, i) => (
               <button
                 key={i}
@@ -90,7 +87,11 @@ const Carousel = ({ children, className = "" }) => {
               />
             ))}
           </div>
-        </>
+          <div className="flex gap-2">
+            <ArrowButton direction="prev" onClick={() => goTo(index - 1)} />
+            <ArrowButton direction="next" onClick={() => goTo(index + 1)} />
+          </div>
+        </div>
       )}
     </div>
   );
