@@ -29,7 +29,7 @@ const ProjectsSection = () => {
       id="projects"
       eyebrow="Before & beside work"
       title="Earlier projects"
-      subtitle="Personal, university and bootcamp projects, with source code on GitHub."
+      subtitle="Personal, university and bootcamp projects, plus UI/UX and event design from my student years."
     >
       <Reveal>
         <div className="mb-6 flex flex-wrap gap-3">

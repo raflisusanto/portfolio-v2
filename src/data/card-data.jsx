@@ -8,6 +8,16 @@ import defect from "../../src/assets/thumbnail/ML/defect.webp";
 import NFO from "../../src/assets/thumbnail/ML/NFO.webp";
 import arrh from "../../src/assets/thumbnail/ML/Arrh.webp";
 import knn from "../../src/assets/thumbnail/ML/knn.webp";
+import interfest from "../../src/assets/thumbnail/GD/interfest.webp";
+import motionhack from "../../src/assets/thumbnail/GD/motionhack.webp";
+import icoseit from "../../src/assets/thumbnail/GD/icoseit.webp";
+import himaif from "../../src/assets/thumbnail/GD/HIMAIF.webp";
+import mulmed from "../../src/assets/thumbnail/GD/mulmed.webp";
+import specifit from "../../src/assets/thumbnail/GD/specifit.webp";
+import tanamaja from "../../src/assets/thumbnail/GD/tanamaja.webp";
+import moneyflix from "../../src/assets/thumbnail/GD/moneyflix.webp";
+import mizkin from "../../src/assets/thumbnail/GD/mizkin.webp";
+// import temuin from "../../src/assets/thumbnail/GD/temuin.webp";
 
 export const projectData = {
   0: [
@@ -102,6 +112,90 @@ export const projectData = {
       githubLink: "https://github.com/raflisusanto/TUPRO-1-3-GA-Fuzzy-KNN",
     },
   ],
+  2: [
+    {
+      img: specifit,
+      title: "Specifit UI/UX Design",
+      desc: "Specifit Mobile App is an application that helps Indonesian people find their perfect workout program for their needs. I also conducted UX Case Study for this application which you can also see in the link below.",
+      techStack: "Figma",
+      figmaLink:
+        "https://www.figma.com/file/1y2aTSa87qIddicemcXaXq/Specifit-Remake?type=design&node-id=226%3A51&mode=design&t=zxXnxw5hKa4RZEu3-1",
+      mediumLink:
+        "https://medium.com/@raflisusanto/specifit-membantu-menemukan-program-olahraga-diet-yang-pas-untuk-orang-indonesia-b20754c32e12",
+    },
+    {
+      img: tanamaja,
+      title: "TanamAja UI Design",
+      desc: "TanamAja won as the top 5 place in UKODE National Hackathon at TECH TO IMPACT 2021. This mobile app is a platform to remind the importance of planting trees to reduce worsening air pollution.",
+      techStack: "Figma",
+      figmaLink:
+        "https://www.figma.com/file/bLbRSGHefVE71swJceVVFK/TanamAja?type=design&node-id=0%3A1&mode=design&t=SuNbFlTIraCd8hgS-1",
+    },
+    {
+      img: moneyflix,
+      title: "MoneyFlix UI Design",
+      desc: "MoneyFlix is a Finance application which I designed to help users learn financial easily and structured. This UI Design was submitted for 2021 ISFEST UMN 2021 UI/UX Competition.",
+      techStack: "Figma",
+      figmaLink:
+        "https://www.figma.com/file/im7OTeqanrAmzclmO18TNO/Beberapa-UI?type=design&node-id=257%3A1344&mode=design&t=EVZrZq1UvPHDUwXa-1",
+    },
+    {
+      img: mizkin,
+      title: "Mizkin UI Design",
+      desc: "Mizkin is a unique financial app that helps to plan and manage expenses, which I also designed a really cool custom 3D isomorphic design that I used in the onboarding part.",
+      techStack: "Figma, Adobe Illustrator",
+      figmaLink:
+        "https://www.figma.com/file/im7OTeqanrAmzclmO18TNO/Beberapa-UI?type=design&node-id=257%3A1344&mode=design&t=EVZrZq1UvPHDUwXa-1",
+    },
+    {
+      img: interfest,
+      title: "Interfest 2022",
+      desc: "Interfest is an event conducted by Informatics Student of Telkom University. I joined as a Creative Designer for this event, in which I helped made Social Media Design (Instagram), Virtual Backgrounds, and 3D Photobooth.",
+      techStack: "Adobe Illustrator",
+      previewLink:
+        "https://drive.google.com/drive/folders/1GKxkvQNH3BtbIW1s5dVnugspsWFn17el?usp=sharing",
+    },
+    {
+      img: motionhack,
+      title: "MotionHack 1.0 2021",
+      desc: "MotionHack is one of Motion Laboratory events which I also joined as a Creative Designer. In this event, I made a motion graphic teaser, logo animation, and speakers background frame.",
+      techStack: "Adobe Illustrator, Adobe After Effect",
+      previewLink:
+        "https://drive.google.com/file/d/1Rkf3kpD7jno8Q_B-ObPQjjjZ2ooyd9yL/view?usp=sharing",
+    },
+    {
+      img: icoseit,
+      title: "ICoSEIT 2022",
+      desc: "I got chosen as a Technical Support for IcoSEIT (Internation Conference on Software Engineering and Information Technology) but I mostly did the design of this event such as Posters, Virtual Backrounds, and Book Covers",
+      techStack: "Adobe Illustrator",
+      previewLink:
+        "https://drive.google.com/drive/folders/13rWGMjy1QqZELr_7FnDBsEM-VmG0VWMX?usp=sharing",
+    },
+    {
+      img: himaif,
+      title: "HIMAIF Telkom University",
+      desc: "As a Creative Design staff in my majors “himpunan”, I did a LOT of design. But mostly I handle Social Media Design (Instagram Feeds and Story), Virtual Backgrounds, and Posters for the events conducted by our community.",
+      techStack: "Adobe Illustrator",
+      previewLink:
+        "https://drive.google.com/drive/folders/1i7C_CNaMyoZq4j9HA69G9jCzGIow4UM-?usp=sharing",
+    },
+    {
+      img: mulmed,
+      title: "Multimedia Lab Open Recruitment 2021",
+      desc: "After the time of my internship ended, I joined as the open recruitment committee as a Creative Designer. I made the Instagram Feeds of this event which is one of the coolest theme I've ever done “Halloween Squid Game”",
+      techStack: "Figma",
+      previewLink:
+        "https://drive.google.com/drive/folders/18fEE9nioDjMz68Cy_BH7Tqg0GBAxyqXM?usp=sharing",
+    },
+    // {
+    //   img: temuin,
+    //   title: "Temuin UI Design",
+    //   desc: "Temuin is an application that helps user to report findings or missing items in Telkom University area. I designed this application as a college assignment on Human Computer Interaction class.",
+    //   techStack: "Figma",
+    //   figmaLink:
+    //     "https://www.figma.com/file/tmisux9C0fmlbkJUlYTBkU/Temuin-UI-Design?type=design&node-id=4%3A2&mode=design&t=eVQBZPNSqkmkntzB-1",
+    // },
+  ],
 };
 
-export const projectCategories = ["Web & Mobile", "Machine Learning"];
+export const projectCategories = ["Web & Mobile", "Machine Learning", "UI/UX & Design"];
