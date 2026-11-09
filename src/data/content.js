@@ -1,7 +1,6 @@
 /**
  * All text on the site lives here.
- * Source of truth: D:\web-porto\portfolio-context.md and
- * D:\web-porto\portov2-materials\case-study-project-details.pdf
+ * Source of truth: my portfolio context notes and case study write-ups (kept outside this repo).
  */
 import erafoneIcon from "../assets/apps/icons/erafone.webp";
 import eztradeIcon from "../assets/apps/icons/ez-trade-store.webp";
