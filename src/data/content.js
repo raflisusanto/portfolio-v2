@@ -183,7 +183,7 @@ export const caseStudies = [
     ],
     results: [
       "Stayed publishable on Google Play under the 16 KB requirement",
-      "In-app update prompts on Android and iOS, and runtime security checks through native Kotlin",
+      "In-app update prompts on Android and iOS, and runtime security checks on Android (Kotlin)",
       "Installment payments live, with a flow that can be fixed without an app release or store review",
     ],
     challenges: [
