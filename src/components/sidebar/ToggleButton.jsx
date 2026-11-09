@@ -2,7 +2,11 @@ import { motion } from "motion/react";
 
 const ToggleButton = ({ setOpen }) => {
   return (
-    <button className="pl-10 pt-10" onClick={() => setOpen((prev) => !prev)}>
+    <button
+      className="ml-auto block pr-10 pt-10"
+      aria-label="Toggle menu"
+      onClick={() => setOpen((prev) => !prev)}
+    >
       <svg width="23" height="23" viewBox="0 0 23 23">
         <motion.path
           strokeWidth="3"
